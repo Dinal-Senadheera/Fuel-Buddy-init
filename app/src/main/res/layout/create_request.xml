@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:backgroundTint="@color/background"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/edtConfirm"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/primary"
+        android:text="@string/confirm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/container4"
+        android:layout_width="@dimen/container_width"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/details_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground" />
+
+    <TextView
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/header_height2"
+        android:background="@drawable/header_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintOverlap" />
+
+    <TextView
+        android:id="@+id/confirmBuy"
+        android:layout_width="346dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/confirm_buy"
+        android:textAlignment="center"
+        android:textColor="@color/secondary"
+        android:textSize="@dimen/main_topic"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/headerBackground"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/available_qty"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintEnd_toStartOf="@+id/edtQuantity"
+        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintStart_toStartOf="@+id/container4"
+        app:layout_constraintTop_toBottomOf="@+id/offeredPrice" />
+
+    <TextView
+        android:id="@+id/edtQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="88dp"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintEnd_toEndOf="@+id/container4"
+        app:layout_constraintTop_toBottomOf="@+id/price"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/offeredPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/offered_price"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintEnd_toStartOf="@+id/price"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/container4" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="128dp"
+        android:text="50"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/container4"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/qty"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container4" />
+
+    <EditText
+        android:id="@+id/edtQty"
+        android:layout_width="@dimen/container_width"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/details_rectangle"
+        android:backgroundTint="@color/background1"
+        android:ems="10"
+        android:hint="@string/qty_hint"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qty"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:id="@+id/description_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/description"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtQty" />
+
+    <EditText
+        android:id="@+id/edtDescriptionBuy"
+        android:layout_width="@dimen/container_width"
+        android:layout_height="104dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="43dp"
+        android:background="@drawable/details_rectangle"
+        android:ems="10"
+        android:hint="@string/des_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/edtConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_buy"
+        app:layout_constraintVertical_bias="0.304"
+        android:importantForAutofill="no" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

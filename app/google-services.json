@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "818995804318",
+    "project_id": "madtest-37f1f",
+    "storage_bucket": "madtest-37f1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818995804318:android:97b15fe653cb082f9c638f",
+        "android_client_info": {
+          "package_name": "com.example.fuelbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818995804318-18t1p92fgfdmar7qbsv0m08bqn25l7c9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGq4N_QdzmELqb0hx0m2CsibTlSa8TY2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818995804318-18t1p92fgfdmar7qbsv0m08bqn25l7c9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

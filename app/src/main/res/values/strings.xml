@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Fuel Buddy</string>
+    <string name="welcome_text">Hello John</string>
+    <string name="profit_txt">Here is your expected profit: </string>
+    <string name="expected_profit">Rs. 2000</string>
+    <string name="posted_tab">Posted</string>
+    <string name="requests_tab">Requests</string>
+    <string name="confirm_request">CONFIRM REQUEST</string>
+    <string name="name"><b>Name: </b></string>
+    <string name="qty"><b>Quantity: </b></string>
+    <string name="description"><b>Description: </b></string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="confirm_buy">CONFIRM BUY</string>
+    <string name="offered_price"><b>Offered Price: </b></string>
+    <string name="available_qty"><b>Available Quantity: </b></string>
+    <string name="confirm">Confirm</string>
+    <string name="qty_hint">Enter the qty needed in litres..</string>
+    <string name="des_hint">Enter a description(optional)..</string>
+</resources>
