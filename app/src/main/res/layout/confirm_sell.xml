@@ -46,7 +46,7 @@
         android:layout_marginTop="348dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/sellDetails"
-        app:srcCompat="@drawable/profit_rectangle" />
+        app:srcCompat="@drawable/profit_rectangle_post" />
 
     <Button
         android:id="@+id/btn_confirm"
@@ -56,7 +56,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="70dp"
-        android:backgroundTint="@color/yellow"
+        android:backgroundTint="@color/primary"
         android:text="@string/confirm_page_name"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -76,7 +76,7 @@
         android:text="@string/profit_title"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -90,8 +90,8 @@
         android:layout_marginTop="39dp"
         android:text="@string/profit"
         android:textAlignment="center"
-        android:textColor="@color/yellow"
-        android:textSize="@dimen/large_text"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/large_text_post"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
@@ -104,7 +104,7 @@
         android:layout_marginTop="22dp"
         android:text="@string/fuel_type_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/sellDetails" />
 
@@ -116,7 +116,7 @@
         android:layout_marginEnd="151dp"
         android:text="@string/fuel_type1"
         android:textColor="@color/black"
-        android:textSize="@dimen/large_text"
+        android:textSize="@dimen/large_text_post"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/sellDetails"
         app:layout_constraintTop_toTopOf="@+id/sellDetails" />
@@ -129,7 +129,7 @@
         android:layout_marginBottom="168dp"
         android:text="@string/quantity_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         app:layout_constraintBottom_toBottomOf="@+id/sellDetails"
         app:layout_constraintEnd_toStartOf="@+id/priceTitle"
         app:layout_constraintHorizontal_bias="0.0"
@@ -143,7 +143,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/qty_confirm"
         android:textColor="@color/black"
-        android:textSize="@dimen/large_text"
+        android:textSize="@dimen/large_text_post"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/sellDetails"
         app:layout_constraintTop_toBottomOf="@+id/confirm_qty" />
@@ -157,7 +157,7 @@
         android:text="@string/liter"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/sellDetails"
         app:layout_constraintStart_toStartOf="@+id/sellDetails" />
@@ -170,7 +170,7 @@
         android:layout_marginEnd="83dp"
         android:text="@string/price_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         app:layout_constraintEnd_toEndOf="@+id/sellDetails"
         app:layout_constraintTop_toBottomOf="@+id/fuel1" />
 
@@ -182,7 +182,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/unit_price"
         android:textColor="@color/black"
-        android:textSize="@dimen/large_text"
+        android:textSize="@dimen/large_text_post"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/sellDetails"
         app:layout_constraintTop_toBottomOf="@+id/priceTitle" />

@@ -14,4 +14,12 @@
     <dimen name="nav_bar_height">50dp</dimen>
     <dimen name="icon_size">40dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="header_width">410dp</dimen>
+    <dimen name="header_height_post">220dp</dimen>
+    <dimen name="container_width_post">370dp</dimen>
+    <dimen name="container_height_post">48dp</dimen>
+    <dimen name="large_text_post">42sp</dimen>
+    <dimen name="small_text_post">26dp</dimen>
+    <dimen name="normal_text_post">34dp</dimen>
 </resources>

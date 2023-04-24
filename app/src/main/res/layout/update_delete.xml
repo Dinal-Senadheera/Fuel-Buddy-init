@@ -5,7 +5,7 @@
     android:id="@+id/QuantityTitle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/yellow"
+    android:backgroundTint="@color/primary"
     tools:context=".MainActivity">
 
     <ImageView
@@ -35,7 +35,7 @@
         android:layout_marginTop="34dp"
         android:text="@string/user_name"
         android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
+        android:textSize="@dimen/normal_text_post"
         app:layout_constraintStart_toStartOf="@+id/header_add"
         app:layout_constraintTop_toTopOf="@+id/header_add" />
 
@@ -48,7 +48,7 @@
         android:layout_marginBottom="18dp"
         android:text="@string/page_edit"
         android:textColor="@color/black"
-        android:textSize="@dimen/large_text"
+        android:textSize="@dimen/large_text_post"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/header_add"
         app:layout_constraintEnd_toEndOf="@+id/header_add"
@@ -60,8 +60,8 @@
         android:layout_height="@dimen/container_height"
         android:layout_marginStart="20dp"
         android:layout_marginTop="67dp"
-        android:background="@drawable/details_rectangle"
-        android:backgroundTint="@color/grey"
+        android:background="@drawable/details_rectangle_post"
+        android:backgroundTint="@color/background1"
         android:ems="10"
         android:hint="  Petrol/Diesel"
         android:inputType="textPersonName"
@@ -76,7 +76,7 @@
         android:layout_marginTop="22dp"
         android:text="@string/quantity_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fuelType" />
 
@@ -88,7 +88,7 @@
         android:layout_marginTop="26dp"
         android:text="@string/fuel_type_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_add" />
 
@@ -97,58 +97,63 @@
         android:layout_width="@dimen/container_width"
         android:layout_height="@dimen/container_height"
         android:layout_marginStart="20dp"
-        android:background="@drawable/details_rectangle"
-        android:backgroundTint="@color/grey"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/details_rectangle_post"
+        android:backgroundTint="@color/background1"
         android:ems="10"
         android:hint="  Liters"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="400dp" />
+        app:layout_constraintTop_toBottomOf="@+id/typeTitle2" />
 
     <TextView
         android:id="@+id/unitPriceTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="17dp"
         android:text="@string/price_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/small_text"
+        android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="465dp" />
+        app:layout_constraintTop_toBottomOf="@+id/qtyInput" />
 
     <EditText
         android:id="@+id/edt_unitPrice"
         android:layout_width="@dimen/container_width"
         android:layout_height="@dimen/container_height"
         android:layout_marginStart="20dp"
-        android:background="@drawable/details_rectangle"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/details_rectangle_post"
         android:ems="10"
         android:hint="  Rs 20.00"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="515dp" />
+        app:layout_constraintTop_toBottomOf="@+id/unitPriceTitle" />
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:backgroundTint="@color/yellow"
+        android:layout_marginTop="19dp"
+        android:backgroundTint="@color/primary"
         android:text="@string/btn_update"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="599dp" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_unitPrice" />
 
     <Button
         android:id="@+id/btn_submit2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="19dp"
         android:layout_marginEnd="50dp"
-        android:backgroundTint="@color/yellow"
+        android:backgroundTint="@color/primary"
         android:text="@string/btn_delete"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -156,6 +161,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_submit"
-        tools:layout_editor_absoluteY="599dp" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_unitPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

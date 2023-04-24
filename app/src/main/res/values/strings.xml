@@ -17,7 +17,25 @@
     <string name="confirm">Confirm</string>
     <string name="qty_hint">Enter the qty needed in litres..</string>
     <string name="des_hint">Enter a description(optional)..</string>
-    <string name="bottomMenuText">Menu</string>
-    <string name="bottom_home_text">Home</string>
-    <string name="bottom_vehicle_text">Vehicles</string>
+
+    <string name="postTitle">POSTS</string>
+    <string name="fuel_type1">Petrol</string>
+    <string name="fuel_type2">Diesel</string>
+    <string name="qty_post">1L</string>
+    <string name="unit_price">Rs 50.00 </string>
+    <string name="confirm_page_name">CONFIRM</string>
+    <string name="fuel_type_title">Fuel Type</string>
+    <string name="quantity_title">Quantity</string>
+    <string name="price_title">Unit Price</string>
+    <string name="qty_confirm">20</string>
+    <string name="liter">Liters</string>
+    <string name="profit_title">Total Profit</string>
+    <string name="profit">Rs 1000.00</string>
+    <string name="user_name">John C.</string>
+    <string name="page_title">ADD FUEL</string>
+    <string name="btn_submit">SUBMIT</string>
+    <string name="page_edit">EDIT..</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_delete">Delete</string>
+    <string name="price2">Rs 45.00</string>
 </resources>
