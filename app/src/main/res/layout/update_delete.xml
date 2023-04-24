@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/QuantityTitle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/yellow"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/header_add"
+        android:layout_width="@dimen/header_width"
+        android:layout_height="@dimen/header_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/header_rectangle" />
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="@+id/header_add"
+        app:layout_constraintTop_toTopOf="@+id/header_add"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="34dp"
+        android:text="@string/user_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text"
+        app:layout_constraintStart_toStartOf="@+id/header_add"
+        app:layout_constraintTop_toTopOf="@+id/header_add" />
+
+    <TextView
+        android:id="@+id/add_fuel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="18dp"
+        android:text="@string/page_edit"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_text"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/header_add"
+        app:layout_constraintEnd_toEndOf="@+id/header_add"
+        app:layout_constraintStart_toStartOf="@+id/header_add" />
+
+    <EditText
+        android:id="@+id/fuelType"
+        android:layout_width="@dimen/container_width"
+        android:layout_height="@dimen/container_height"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="67dp"
+        android:background="@drawable/details_rectangle"
+        android:backgroundTint="@color/grey"
+        android:ems="10"
+        android:hint="  Petrol/Diesel"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_add" />
+
+    <TextView
+        android:id="@+id/typeTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/quantity_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fuelType" />
+
+    <TextView
+        android:id="@+id/typeTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/fuel_type_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_add" />
+
+    <EditText
+        android:id="@+id/qtyInput"
+        android:layout_width="@dimen/container_width"
+        android:layout_height="@dimen/container_height"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/details_rectangle"
+        android:backgroundTint="@color/grey"
+        android:ems="10"
+        android:hint="  Liters"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="400dp" />
+
+    <TextView
+        android:id="@+id/unitPriceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/price_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/small_text"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="465dp" />
+
+    <EditText
+        android:id="@+id/edt_unitPrice"
+        android:layout_width="@dimen/container_width"
+        android:layout_height="@dimen/container_height"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/details_rectangle"
+        android:ems="10"
+        android:hint="  Rs 20.00"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="515dp" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:backgroundTint="@color/yellow"
+        android:text="@string/btn_update"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="599dp" />
+
+    <Button
+        android:id="@+id/btn_submit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/yellow"
+        android:text="@string/btn_delete"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_submit"
+        tools:layout_editor_absoluteY="599dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
