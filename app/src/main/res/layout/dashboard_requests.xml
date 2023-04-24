@@ -107,150 +107,31 @@
         android:id="@+id/edtRequests"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/primary"
         android:text="@string/requests_tab"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/container1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/edtPosted"
         app:layout_constraintTop_toBottomOf="@+id/headerBackground"
-        app:layout_constraintVertical_bias="1.0"
         app:strokeColor="@color/primary"
         app:strokeWidth="2dp"
         tools:ignore="TextSizeCheck" />
-
-    <TextView
-        android:id="@+id/container1"
-        android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/details_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPosted" />
-
-    <TextView
-        android:id="@+id/container2"
-        android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/details_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container1" />
-
-    <TextView
-        android:id="@+id/container3"
-        android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/details_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container2" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Name: Bernard"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container1"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="@+id/container1"
-        app:layout_constraintTop_toTopOf="@+id/container1"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Quantity: 10"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container2"
-        app:layout_constraintHorizontal_bias="0.145"
-        app:layout_constraintStart_toStartOf="@+id/container2"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Quantity: 10"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container3"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="@+id/container3"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Name: Anne"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container2"
-        app:layout_constraintHorizontal_bias="0.147"
-        app:layout_constraintStart_toStartOf="@+id/container2"
-        app:layout_constraintTop_toTopOf="@+id/container2"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Quantity: 10"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container1"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="@+id/container1"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Name: Valerick"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container3"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="@+id/container3"
-        app:layout_constraintTop_toTopOf="@+id/container3"
-        tools:ignore="HardcodedText" />
 
     <View
         android:id="@+id/divider2"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/navBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container3" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/menu2"
@@ -284,6 +165,32 @@
         app:layout_constraintStart_toStartOf="@+id/navBackground"
         app:srcCompat="@drawable/home"
         tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.fuelbuddy.RequestFragment"
+        android:layout_width="0dp"
+        android:layout_height="486dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/navBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtRequests"
+        tools:layout="@layout/requests_fragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -88,7 +88,9 @@
         app:layout_constraintEnd_toStartOf="@+id/edtRequests"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerBackground" />
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="@dimen/stroke_width" />
 
     <Button
         android:id="@+id/edtRequests"
@@ -98,7 +100,7 @@
         android:text="@string/requests_tab"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/edtPosted"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/edtPosted"
@@ -107,189 +109,28 @@
         app:strokeWidth="@dimen/stroke_width"
         tools:ignore="TextSizeCheck" />
 
-    <TextView
-        android:id="@+id/container1"
-        android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/details_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPosted" />
-
-    <TextView
-        android:id="@+id/container2"
-        android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/details_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container1" />
-
-    <TextView
-        android:id="@+id/container3"
-        android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/details_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container2" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Fuel Type: Petrol"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container1"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="@+id/container1"
-        app:layout_constraintTop_toTopOf="@+id/container1"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="32dp"
-        android:text="Unit Profit: 50"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container1"
-        app:layout_constraintTop_toTopOf="@+id/container1"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="28dp"
-        android:text="Unit Profit: 50"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container2"
-        app:layout_constraintTop_toTopOf="@+id/container2"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="28dp"
-        android:text="Unit Profit: 60"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container3"
-        app:layout_constraintTop_toTopOf="@+id/container3"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Quantity: 10"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toStartOf="@+id/textView15"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/container2"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Quantity: 10"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toStartOf="@+id/textView21"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/container3"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Fuel Type: Diesel"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container2"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="@+id/container2"
-        app:layout_constraintTop_toTopOf="@+id/container2"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Quantity: 10"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.31"
-        app:layout_constraintStart_toStartOf="@+id/container1"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:ignore="HardcodedText" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Fuel Type: Petrol"
-        android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
-        app:layout_constraintEnd_toEndOf="@+id/container3"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="@+id/container3"
-        app:layout_constraintTop_toTopOf="@+id/container3"
-        tools:ignore="HardcodedText" />
-
     <View
         android:id="@+id/divider"
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="4dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="@dimen/nav_bar_height"
-        android:layout_marginTop="40dp"
         android:background="@drawable/nav_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/menu"
@@ -323,6 +164,23 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/homeIcon"
         app:srcCompat="@drawable/vehicle" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/postedInit"
+        android:name="com.example.fuelbuddy.PostedFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPosted"
+        app:layout_constraintVertical_bias="0.037"
+        tools:layout="@layout/posted_fragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
