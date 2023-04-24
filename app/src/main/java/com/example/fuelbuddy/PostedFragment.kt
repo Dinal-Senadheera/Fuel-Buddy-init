@@ -44,7 +44,6 @@ class PostedFragment:Fragment() {
 
 
     private fun getPostData() {
-//        db = Firebase.firestore
         dbref = FirebaseDatabase.getInstance().getReference("Posts")
 
         dbref.addValueEventListener(object: ValueEventListener{

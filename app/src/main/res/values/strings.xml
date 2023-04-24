@@ -17,4 +17,7 @@
     <string name="confirm">Confirm</string>
     <string name="qty_hint">Enter the qty needed in litres..</string>
     <string name="des_hint">Enter a description(optional)..</string>
+    <string name="bottomMenuText">Menu</string>
+    <string name="bottom_home_text">Home</string>
+    <string name="bottom_vehicle_text">Vehicles</string>
 </resources>

@@ -2,45 +2,41 @@ package com.example.fuelbuddy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private val fragmentPosted = PostedFragment()
-    private val requestFragment = RequestFragment()
-    private lateinit var requestBtn: Button
-    private lateinit var postBtn: Button
-
+    private val fragmentMenu = MenuFragment()
+    private lateinit var mainBottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        requestBtn = findViewById(R.id.edtRequests)
-        postBtn = findViewById(R.id.edtPosted)
-
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.postedInit, fragmentPosted)
+            replace(R.id.mainFragment, fragmentMenu)
             commit()
         }
+        mainBottomNav = findViewById(R.id.mainBottomNav)
+        mainBottomNav.setOnItemSelectedListener { item -> when (item.itemId) {
+            R.id.bottom_menu_text -> { replaceFragment(fragmentMenu)
+                                        true }
+//            R.id.bottom_home_text -> { replaceFragment(blogFragment)
+//                                        true }
+//            R.id.bottom_vehicle_text -> { replaceFragment(accountFragment)
+//                                            true }
+            else -> false } }
 
-        requestBtn.setOnClickListener {
-            requestBtn.setBackgroundColor(resources.getColor(R.color.primary))
-            postBtn.setBackgroundColor(resources.getColor(R.color.background))
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.postedInit, requestFragment)
-                commit()
-            }
+    }
+
+    private fun replaceFragment(fragment :Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.mainFragment, fragment)
+            commit()
         }
-
-        postBtn.setOnClickListener {
-            postBtn.setBackgroundColor(resources.getColor(R.color.primary))
-            requestBtn.setBackgroundColor(resources.getColor(R.color.background))
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.postedInit, fragmentPosted)
-                commit()
-            }
-        }
-
     }
 
 
