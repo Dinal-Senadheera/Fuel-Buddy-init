@@ -32,8 +32,6 @@ class RequestAdapter(private val requestList: java.util.ArrayList<Request>) : Re
 //        holder.cbTodo.text = data[position].item
         val currentRequest = requestList[position]
 
-        Log.d(TAG,requestList.size.toString())
-
 //        holder.name.text = currentRequest.Name
 //        holder.qty.text = currentRequest.Qty.toString()
 //        holder.unitProfit.text = currentRequest.UnitProfit.toString()

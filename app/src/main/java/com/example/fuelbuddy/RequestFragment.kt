@@ -30,6 +30,7 @@ class RequestFragment:Fragment() {
         recyclerView.setHasFixedSize(true)
 
         requestArrayList = arrayListOf<Request>()
+        recyclerView.adapter = RequestAdapter(requestArrayList)
         getRequestData()
 
         return view
@@ -44,9 +45,10 @@ class RequestFragment:Fragment() {
         dbref.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
+                    requestArrayList = arrayListOf<Request>()
                     for(requestSnapshot in snapshot.children) {
                         val request = requestSnapshot.getValue(/* valueType = */ Request::class.java)
-                        Log.d(TAG, request.toString())
+//                        Log.d(TAG, request.toString())
                         requestArrayList.add(request!!)
                     }
 

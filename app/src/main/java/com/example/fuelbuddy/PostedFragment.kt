@@ -27,9 +27,10 @@ class PostedFragment:Fragment() {
         val view = inflater.inflate(R.layout.posted_fragment, container, false)
         recyclerView = view.findViewById(R.id.postedList)
         recyclerView.layoutManager = LinearLayoutManager(view.context)
-//        recyclerView.setHasFixedSize(true)
+        recyclerView.setHasFixedSize(true)
 
         postArrayList = arrayListOf<Posted>()
+        recyclerView.adapter = PostedAdapter(postArrayList)
         getPostData()
 
 
@@ -49,9 +50,10 @@ class PostedFragment:Fragment() {
         dbref.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
+                    postArrayList = arrayListOf<Posted>()
                     for(postSnapshot in snapshot.children) {
                         val post = postSnapshot.getValue(/* valueType = */ Posted::class.java)
-                        Log.d(TAG, post.toString())
+//                        Log.d(TAG, post.toString())
                         postArrayList.add(post!!)
                     }
 
