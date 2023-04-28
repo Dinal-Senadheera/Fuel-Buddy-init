@@ -7,6 +7,8 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Firebase.database.setPersistenceEnabled(true)
+
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.mainFragment, fragmentMenu)
