@@ -45,7 +45,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
                     val builder = AlertDialog.Builder(this)
                     val message = "Do you want to Allocate the remaining Quantity(${it.value.toString()}L) to this user?"
 
-                    if( parseInt(it.value.toString()) - qty!! < 0 ) {
+                    if( parseInt(it.value.toString()) - qty < 0 ) {
                         builder.setTitle("Current Quantity exceeds requested value")
                     } else {
                         builder.setTitle("Post quantity satisfied. The post will be closed..")
@@ -55,7 +55,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
                     builder.setPositiveButton("Yes") { _, _ ->
                         Toast.makeText(this, "Request Accepted", Toast.LENGTH_LONG).show()
                         dbrefReq.child(reqID!!).removeValue()
-                        dbrefPosts.child(postID!!).removeValue()
+                        dbrefPosts.child(postID).removeValue()
 
                         //Delete all related requests since the post is completed
                         val reqQuery : Query = dbrefReq.orderByChild("Post").equalTo(postID)
