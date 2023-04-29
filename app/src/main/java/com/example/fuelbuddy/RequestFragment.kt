@@ -52,19 +52,20 @@ class RequestFragment:Fragment() {
                     requestArrayList = arrayListOf()
                     for(requestSnapshot in snapshot.children) {
                         val request = requestSnapshot.getValue(/* valueType = */ Request::class.java)
-//                        Log.d(TAG, request.toString())
+                        request?.key = requestSnapshot.key
+                        Log.d(TAG, request.toString())
                         requestArrayList.add(request!!)
                     }
 
                     var adapter = RequestAdapter(requestArrayList)
                     adapter.setOnItemClickListener(object:RequestAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
-                            Log.d(TAG, position.toString())
+//                            Log.d(TAG, position.toString())
                             val intent = Intent(activity,ConfirmRequestActivity::class.java)
 //                            intent.putExtra("request", requestArrayList[position])
                             intent.putExtra("Name",requestArrayList[position].Name)
                             intent.putExtra("PostID",requestArrayList[position].Post)
-//                            Log.d(TAG,requestArrayList[position].Post.toString())
+                            intent.putExtra("ReqID",requestArrayList[position].key)
                             intent.putExtra("Qty",requestArrayList[position].Qty)
                             intent.putExtra("Description",requestArrayList[position].Description)
                             startActivity(intent)

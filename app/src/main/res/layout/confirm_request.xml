@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/edtPosted3"
+        android:id="@+id/edtDecline"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
         android:layout_marginTop="5dp"
@@ -36,7 +36,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtPosted3"
+        app:layout_constraintBottom_toTopOf="@+id/edtDecline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container4"
