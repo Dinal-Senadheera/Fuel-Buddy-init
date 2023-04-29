@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.FuelBuddy"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:name=".FireBaseApp">
         <activity
             android:name=".MainActivity"
             android:exported="true">

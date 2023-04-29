@@ -63,7 +63,12 @@ class ConfirmRequestActivity : AppCompatActivity() {
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
                                 for (postSnapshot in dataSnapshot.children) {
 //                                    Log.d(TAG,postSnapshot.value.toString())
-                                    postSnapshot.ref.removeValue()
+                                    postSnapshot.ref.removeValue().addOnSuccessListener {
+                                        val intent = Intent(this@ConfirmRequestActivity,MainActivity::class.java)
+                                        startActivity(intent)
+                                    }.addOnFailureListener {
+                                        Toast.makeText(this@ConfirmRequestActivity, "Could not update database", Toast.LENGTH_LONG).show()
+                                    }
                                 }
                             }
 
@@ -73,8 +78,8 @@ class ConfirmRequestActivity : AppCompatActivity() {
                                 // ...
                             }
                         })
-//                        val intent = Intent(this,MainActivity::class.java)
-//                        startActivity(intent)
+                        val intent = Intent(this,MainActivity::class.java)
+                        startActivity(intent)
                     }
                     builder.setNegativeButton("Cancel"){_, _ ->
                     }
@@ -86,7 +91,12 @@ class ConfirmRequestActivity : AppCompatActivity() {
                         .child(postID)
                         .child("Qty")
                         .setValue(ServerValue.increment(-qty.toDouble()))
-                    dbrefReq.child(reqID!!).removeValue()
+                    dbrefReq.child(reqID!!).removeValue().addOnSuccessListener {
+                        val intent = Intent(this@ConfirmRequestActivity,MainActivity::class.java)
+                        startActivity(intent)
+                    }.addOnFailureListener {
+                        Toast.makeText(this@ConfirmRequestActivity, "Could not update database", Toast.LENGTH_LONG).show()
+                    }
                     Toast.makeText(this, "Request Accepted", Toast.LENGTH_LONG).show()
                 }
             }
@@ -96,7 +106,14 @@ class ConfirmRequestActivity : AppCompatActivity() {
 
         declineButton.setOnClickListener {
             dbrefReq.child(reqID!!).removeValue()
-            Toast.makeText(this, "Request Declined", Toast.LENGTH_LONG).show()
+                .addOnSuccessListener {
+                    val intent = Intent(this@ConfirmRequestActivity,MainActivity::class.java)
+                    startActivity(intent)
+                    Toast.makeText(this, "Request Declined", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener {
+                Toast.makeText(this@ConfirmRequestActivity, "Could not update database", Toast.LENGTH_LONG).show()
+            }
+
         }
 
     }
