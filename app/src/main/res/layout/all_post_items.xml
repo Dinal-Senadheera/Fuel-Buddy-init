@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/postDet"
+        android:layout_width="310dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profit_rectangle_post" />
+
+    <ImageView
+        android:id="@+id/ftype"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/postDet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/fuel_type_rectangle" />
+
+    <TextView
+        android:id="@+id/Type"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="2dp"
+        android:text="Petrol"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ftype"
+        app:layout_constraintEnd_toEndOf="@+id/ftype"
+        app:layout_constraintStart_toStartOf="@+id/ftype"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/horizontalLine"
+        android:layout_width="4dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/postDet"
+        app:layout_constraintStart_toEndOf="@+id/quant"
+        app:layout_constraintTop_toTopOf="@+id/postDet"
+        app:srcCompat="@drawable/baseline_rectangle_24"
+        tools:ignore="UnknownId" />
+
+    <TextView
+        android:id="@+id/quant"
+        android:layout_width="34dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="1L"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/postDet"
+        app:layout_constraintEnd_toStartOf="@+id/profit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/postDet"
+        app:layout_constraintStart_toStartOf="@+id/postDet"
+        app:layout_constraintTop_toTopOf="@+id/postDet"
+        tools:ignore="HardcodedText,UnknownId" />
+
+    <TextView
+        android:id="@+id/profit"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="Rs.50.00"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/postDet"
+        app:layout_constraintEnd_toEndOf="@+id/postDet"
+        app:layout_constraintStart_toEndOf="@+id/quant"
+        app:layout_constraintTop_toTopOf="@+id/postDet"
+        tools:ignore="HardcodedText,UnknownId" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
