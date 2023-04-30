@@ -1,11 +1,13 @@
 package com.example.fuelbuddy
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -22,6 +24,8 @@ class AllPostsFragment:Fragment() {
     private lateinit var dbref: DatabaseReference
     private lateinit var newPostList: ArrayList<Posted>
     private lateinit var postRecyclerView: RecyclerView
+    private lateinit var btnAddFuel : ImageView
+
 //    private var totalProfit: Int? = null
 //    lateinit var type : Array<String>
 //    lateinit var qty : Array<Int>
@@ -32,11 +36,16 @@ class AllPostsFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
         val view = inflater.inflate(R.layout.post, container, false)
+        btnAddFuel = view.findViewById(R.id.imgAddFuel)
         postRecyclerView = view.findViewById(R.id.allPosts)
         postRecyclerView.layoutManager = LinearLayoutManager(view.context)
         postRecyclerView.setHasFixedSize(true)
+
+        btnAddFuel.setOnClickListener {
+            val intent = Intent(activity, AddFuel::class.java)
+            startActivity(intent)
+        }
 
         newPostList = arrayListOf()
         postRecyclerView.adapter = AllPostAdapter(newPostList)
