@@ -41,4 +41,22 @@
     <string name="menuNavBar">Menu</string>
     <string name="homeNavBAr">Home</string>
     <string name="vehiclesNavBar">Vehicles</string>
+
+
+    <string name="title_activity_login_fuel_buddy">LoginFuelBuddy</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="welcomeMasage">Welcome</string>
+    <string name="signInMasage">Sign In to continue</string>
+    <string name="vechicleTopic">Vehicles</string>
+    <string name="userName">John c.</string>
+    <string name="qGasoline">Gasoline : 14l</string>
+    <string name="qDiesel">Diesel : 20l</string>
+    <string name="Add_vehiclesTopic">ADD Vehicles</string>
 </resources>
