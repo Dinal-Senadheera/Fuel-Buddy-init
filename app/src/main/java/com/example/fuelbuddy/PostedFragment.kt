@@ -9,14 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.adapters.PostedAdapter
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.database.*
 
-//import com.google.firebase.firestore.ktx.firestore
 
 class PostedFragment:Fragment() {
     private lateinit var dbref: DatabaseReference
@@ -37,13 +35,7 @@ class PostedFragment:Fragment() {
         postArrayList = arrayListOf()
         recyclerView.adapter = PostedAdapter(postArrayList)
         getPostData()
-//        parentFragmentManager.setFragmentResult("requestKey", bundleOf("bundleKey" to totalProfit?.toString()))
 
-
-
-//        btnDisplay.setOnClickListener {
-//            Toast.makeText(context,"Hello, ${edtName.text.toString()}", Toast.LENGTH_LONG).show()
-//        }
         return view
     }
 
@@ -74,23 +66,6 @@ class PostedFragment:Fragment() {
 
         })
 
-
-
-
-
-//        db.collection("posts")
-//            .get()
-//            .addOnSuccessListener { result ->
-//                for (document in result) {
-//                    Log.d(TAG, "${document.id} => ${document.data}")
-//                    val post = document.data.getValue()
-//                    Log.d(TAG, post.toString())
-////                    postArrayList.add(post!!)
-//                }
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.w(TAG, "Error getting documents.", exception)
-//            }
     }
 
 }
