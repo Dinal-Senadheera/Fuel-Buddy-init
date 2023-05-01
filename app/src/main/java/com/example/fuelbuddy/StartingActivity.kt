@@ -3,7 +3,7 @@ package com.example.fuelbuddy
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.view.WindowManager
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 
 class StartingActivity : AppCompatActivity() {
@@ -19,13 +19,15 @@ class StartingActivity : AppCompatActivity() {
 //        )
         setContentView(R.layout.activity_start_app)
 
-        Handler().postDelayed({
+        val handler = Handler(Looper.getMainLooper())
+
+        handler.postDelayed({
             val i = Intent(
                 this@StartingActivity,
-                MainActivity::class.java
+                Login::class.java
             )
             startActivity(i)
             finish()
-        }, 2000)
+        }, 1000)
     }
 }

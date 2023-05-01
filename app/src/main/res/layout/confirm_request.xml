@@ -12,8 +12,7 @@
         android:id="@+id/edtDecline"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/background"
         android:text="@string/decline"
         android:textColor="@color/black"
@@ -23,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtConfirm"
+        app:layout_constraintVertical_bias="0.0"
         app:strokeColor="@color/primary"
         app:strokeWidth="@dimen/stroke_width" />
 
@@ -30,23 +30,23 @@
         android:id="@+id/edtConfirm"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="@color/primary"
         android:text="@string/accept"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtDecline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/container4" />
 
     <TextView
         android:id="@+id/container4"
-        android:layout_width="382dp"
+        android:layout_width="0dp"
         android:layout_height="290dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/details_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -83,12 +83,11 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
         android:text="@string/name"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
-        app:layout_constraintEnd_toStartOf="@+id/edtPersonName"
-        app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toStartOf="@+id/container4"
         app:layout_constraintTop_toTopOf="@+id/container4" />
 
@@ -96,11 +95,13 @@
         android:id="@+id/edtPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="164dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="148dp"
         android:text="Bernard"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
         app:layout_constraintEnd_toEndOf="@+id/container4"
+        app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="@+id/name"
         tools:ignore="HardcodedText" />
 
@@ -113,8 +114,6 @@
         android:text="@string/qty"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
-        app:layout_constraintEnd_toStartOf="@+id/edtQuantity"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/container4"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -122,11 +121,14 @@
         android:id="@+id/edtQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="192dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="152dp"
         android:text="10"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
         app:layout_constraintEnd_toEndOf="@+id/container4"
+        app:layout_constraintHorizontal_bias="0.342"
+        app:layout_constraintStart_toEndOf="@+id/quantity"
         app:layout_constraintTop_toTopOf="@+id/quantity"
         tools:ignore="HardcodedText" />
 

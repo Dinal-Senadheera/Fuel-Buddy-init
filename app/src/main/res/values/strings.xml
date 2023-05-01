@@ -2,7 +2,7 @@
     <string name="app_name">Fuel Buddy</string>
     <string name="welcome_text">Hello John</string>
     <string name="profit_txt">Here is your expected profit: </string>
-    <string name="expected_profit">Rs. 2000</string>
+    <string name="expected_profit">Rs. 0</string>
     <string name="posted_tab">Posted</string>
     <string name="requests_tab">Requests</string>
     <string name="confirm_request">CONFIRM REQUEST</string>
@@ -43,20 +43,28 @@
     <string name="vehiclesNavBar">Vehicles</string>
 
 
-    <string name="title_activity_login_fuel_buddy">LoginFuelBuddy</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="title_activity_login_fuel_buddy">Login</string>
+    <string name="prompt_Name">      Display Name</string>
+    <string name="prompt_email">      Email</string>
+    <string name="prompt_password">      Password</string>
+    <string name="prompt_repassword">      Re-enter Password</string>
+    <string name="prompt_NIC">      NIC</string>
+    <string name="prompt_phone">      Contact Number</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="welcomeMasage">Welcome</string>
+    <string name="welcomeMassage">Welcome</string>
     <string name="signInMasage">Sign In to continue</string>
     <string name="vechicleTopic">Vehicles</string>
     <string name="userName">John c.</string>
     <string name="qGasoline">Gasoline : 14l</string>
     <string name="qDiesel">Diesel : 20l</string>
     <string name="Add_vehiclesTopic">ADD Vehicles</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_up">Not a User? Sign up</string>
+    <string name="Register">Sign up</string>
+    <string name="loginPrompt">Already a user? Sign in</string>
 </resources>
