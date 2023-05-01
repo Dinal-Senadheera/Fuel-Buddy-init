@@ -36,7 +36,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.4"
-        app:srcCompat="@drawable/confirm_sell_rectangle" />
+        app:srcCompat="@drawable/confirm_sell_rectangle"
+        tools:ignore="ContentDescription,VisualLintBounds" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -46,10 +47,11 @@
         android:layout_marginTop="348dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/sellDetails"
-        app:srcCompat="@drawable/profit_rectangle_post" />
+        app:srcCompat="@drawable/profit_rectangle_post"
+        tools:ignore="ContentDescription" />
 
     <Button
-        android:id="@+id/btn_confirm"
+        android:id="@+id/btnConfirm"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginStart="100dp"
@@ -80,10 +82,11 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView2" />
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/totProfit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
@@ -106,10 +109,11 @@
         android:textColor="@color/black"
         android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sellDetails" />
+        app:layout_constraintTop_toTopOf="@+id/sellDetails"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <TextView
-        android:id="@+id/fuel1"
+        android:id="@+id/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="77dp"
@@ -133,10 +137,11 @@
         app:layout_constraintBottom_toBottomOf="@+id/sellDetails"
         app:layout_constraintEnd_toStartOf="@+id/priceTitle"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <TextView
-        android:id="@+id/qty"
+        android:id="@+id/qtyL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -160,7 +165,8 @@
         android:textSize="@dimen/small_text_post"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/sellDetails"
-        app:layout_constraintStart_toStartOf="@+id/sellDetails" />
+        app:layout_constraintStart_toStartOf="@+id/sellDetails"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <TextView
         android:id="@+id/priceTitle"
@@ -172,7 +178,8 @@
         android:textColor="@color/black"
         android:textSize="@dimen/small_text_post"
         app:layout_constraintEnd_toEndOf="@+id/sellDetails"
-        app:layout_constraintTop_toBottomOf="@+id/fuel1" />
+        app:layout_constraintTop_toBottomOf="@+id/type"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <TextView
         android:id="@+id/unitPrice"
@@ -197,8 +204,9 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/sellDetails"
         app:layout_constraintStart_toStartOf="@+id/sellDetails"
-        app:layout_constraintTop_toBottomOf="@+id/fuel1"
-        app:srcCompat="@drawable/baseline_horizontal_rule_24" />
+        app:layout_constraintTop_toBottomOf="@+id/type"
+        app:srcCompat="@drawable/baseline_horizontal_rule_24"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/hr2"
@@ -212,7 +220,8 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/baseline_horizontal_rule_24" />
+        app:srcCompat="@drawable/baseline_horizontal_rule_24"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/verticalline1"
@@ -223,6 +232,7 @@
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="@+id/sellDetails"
         app:layout_constraintTop_toTopOf="@+id/sellDetails"
-        app:srcCompat="@drawable/baseline_rectangle_24" />
+        app:srcCompat="@drawable/baseline_rectangle_24"
+        tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
