@@ -78,7 +78,7 @@ class MenuFragment: Fragment() {
                 if (snapshot.exists()) {
                     var total = 0
                     for (postSnapshot in snapshot.children) {
-                        val post = postSnapshot.getValue(/* valueType = */ Posted::class.java)
+                        val post = postSnapshot.getValue( Posted::class.java)
                         total += (post?.Qty?.times(post.UnitProfit!!)!!)
                     }
 //                    Log.d(TAG, totalProfit.toString())

@@ -19,12 +19,16 @@ class Login : AppCompatActivity() {
         val loginBtn: Button = findViewById(R.id.LoginBtn)
         val loginUsername :TextView = findViewById(R.id.edtLoginName)
         val loginPassword :TextView = findViewById(R.id.edtPassword)
+        val passwordReset :TextView = findViewById(R.id.passwordReset)
 
         auth = FirebaseAuth.getInstance()
 
+
         loginBtn.setOnClickListener {
+
             val email = loginUsername.text.toString()
             val password  = loginPassword.text.toString()
+
 
             if( email.isNotEmpty() && password.isNotEmpty() ) {
                 auth.signInWithEmailAndPassword(email, password)
@@ -57,6 +61,23 @@ class Login : AppCompatActivity() {
                 Toast.makeText(this, "Please fill the email and password", Toast.LENGTH_LONG).show()
             }
         }
+
+        passwordReset.setOnClickListener {
+
+            val email = loginUsername.text.toString()
+            if( email.isNotEmpty() ) {
+                auth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Email Sent.Please check your mail", Toast.LENGTH_LONG).show()
+                        }
+                    }
+            } else {
+                Toast.makeText(this, "Please fill the email and press forgot password", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
     }
 
     public override fun onStart() {
