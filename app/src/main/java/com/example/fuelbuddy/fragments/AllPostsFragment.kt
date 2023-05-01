@@ -1,19 +1,17 @@
-package com.example.fuelbuddy
+package com.example.fuelbuddy.fragments
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fuelbuddy.AddFuel
+import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.AllPostAdapter
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.database.*

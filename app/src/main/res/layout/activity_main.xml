@@ -16,7 +16,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainFragment"
-        android:name="com.example.fuelbuddy.MenuFragment"
+        android:name="com.example.fuelbuddy.fragments.MenuFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/mainBottomNav"
