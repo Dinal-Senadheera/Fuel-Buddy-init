@@ -1,20 +1,21 @@
-package com.example.fuelbuddy
+package com.example.fuelbuddy.fragments
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fuelbuddy.AddFuel
+import com.example.fuelbuddy.ConfirmRequestActivity
+import com.example.fuelbuddy.CreateRequest
+import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.AllPostAdapter
+import com.example.fuelbuddy.adapters.RequestAdapter
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.database.*
 
@@ -62,14 +63,27 @@ class AllPostsFragment:Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     newPostList = arrayListOf()
+                    var keyList = arrayListOf<String>()
                     for (postSnapshot in snapshot.children) {
                         val post = postSnapshot.getValue(/* valueType = */ Posted::class.java)
                         newPostList.add(post!!)
+                        keyList.add(postSnapshot.key.toString())
                     }
 //                    Log.d(TAG , newPostList.toString())
 
-                    postRecyclerView.adapter = AllPostAdapter(newPostList)
-
+                    val adapter = AllPostAdapter(newPostList)
+                    adapter.setOnItemClickListener(object: AllPostAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+//                            Log.d(TAG, position.toString())
+                            val intent = Intent(activity, CreateRequest::class.java)
+                            intent.putExtra("postUserID",newPostList[position].userID)
+                            intent.putExtra("Price",newPostList[position].UnitProfit)
+                            intent.putExtra("qty",newPostList[position].Qty)
+                            intent.putExtra("Post",keyList[position])
+                            startActivity(intent)
+                        }
+                    })
+                    postRecyclerView.adapter = adapter
                 }
             }
 

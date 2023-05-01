@@ -12,7 +12,7 @@
         android:id="@+id/edtConfirm"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/primary"
         android:text="@string/confirm"
         android:textColor="@color/black"
@@ -22,6 +22,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtDescriptionBuy"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TextSizeCheck" />
 
     <TextView
@@ -31,7 +33,6 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/details_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerBackground" />
 
@@ -118,11 +119,11 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/qty"
-        android:layout_width="wrap_content"
+        android:id="@+id/qtyL"
+        android:layout_width="104dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="@string/qty"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
@@ -135,18 +136,15 @@
         android:id="@+id/edtQty"
         android:layout_width="@dimen/container_width_post"
         android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/login_rectangle"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/details_rectangle"
         android:backgroundTint="@color/background1"
         android:ems="10"
         android:hint="@string/qty_hint"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qty"
+        app:layout_constraintTop_toBottomOf="@+id/qtyL"
         tools:ignore="Autofill" />
 
     <TextView
@@ -154,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="@string/description"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
@@ -167,21 +165,17 @@
         android:id="@+id/edtDescriptionBuy"
         android:layout_width="@dimen/container_width"
         android:layout_height="104dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/details_rectangle"
         android:ems="10"
         android:hint="@string/des_hint"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/edtConfirm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_buy"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/description_buy" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

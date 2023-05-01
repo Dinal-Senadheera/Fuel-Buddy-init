@@ -30,14 +30,15 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="30dp"
         android:text="@string/user_name"
         android:textColor="@color/black"
-        android:textSize="@dimen/normal_text"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/header_add"
         app:layout_constraintTop_toTopOf="@+id/header_add" />
 
@@ -50,7 +51,7 @@
         android:layout_marginBottom="18dp"
         android:text="@string/page_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/large_text"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/header_add"
         app:layout_constraintEnd_toEndOf="@+id/header_add"

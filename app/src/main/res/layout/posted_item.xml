@@ -58,7 +58,7 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/totProfit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fuel Type: "
@@ -78,7 +78,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/normal_text"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/totProfit"
         app:layout_constraintTop_toTopOf="@+id/container5"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />

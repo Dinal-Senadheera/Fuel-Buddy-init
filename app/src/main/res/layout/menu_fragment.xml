@@ -111,7 +111,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/postedInit"
-        android:name="com.example.fuelbuddy.PostedFragment"
+        android:name="com.example.fuelbuddy.fragments.PostedFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="25dp"
