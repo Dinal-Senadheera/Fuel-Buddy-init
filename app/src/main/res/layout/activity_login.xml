@@ -111,8 +111,8 @@
         android:ems="10"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView8" />

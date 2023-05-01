@@ -63,6 +63,8 @@
         android:ems="10"
         android:hint="@string/prompt_password"
         android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLoginName" />
@@ -79,6 +81,8 @@
         android:ems="10"
         android:hint="@string/prompt_repassword"
         android:inputType="textPassword"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +114,8 @@
         android:ems="10"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtUserName" />
@@ -121,14 +127,16 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
+        android:autofillHints=""
         android:background="@drawable/login_rectangle"
         android:ems="10"
         android:hint="@string/prompt_Name"
         android:inputType="textPersonName"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView8"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <EditText
         android:id="@+id/edtNIC"
@@ -137,14 +145,16 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
+        android:autofillHints=""
         android:background="@drawable/login_rectangle"
         android:ems="10"
         android:hint="@string/prompt_NIC"
         android:inputType="textPersonName"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRePassword"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/edtRePassword" />
 
     <EditText
         android:id="@+id/edtPhone"
@@ -153,13 +163,15 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
+        android:autofillHints=""
         android:background="@drawable/login_rectangle"
         android:ems="10"
         android:hint="@string/prompt_phone"
         android:inputType="phone"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNIC"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNIC" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
