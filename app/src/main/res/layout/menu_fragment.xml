@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/confirmBuy"
+        android:id="@+id/Username"
         android:layout_width="206dp"
         android:layout_height="44dp"
         android:layout_marginStart="20dp"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmBuy" />
+        app:layout_constraintTop_toBottomOf="@+id/Username" />
 
     <TextView
         android:id="@+id/profitTxt"

@@ -46,7 +46,7 @@
         tools:ignore="VisualLintOverlap" />
 
     <TextView
-        android:id="@+id/confirmBuy"
+        android:id="@+id/Username"
         android:layout_width="346dp"
         android:layout_height="62dp"
         android:layout_marginStart="20dp"

@@ -20,6 +20,7 @@ class Login : AppCompatActivity() {
         val loginUsername :TextView = findViewById(R.id.edtLoginName)
         val loginPassword :TextView = findViewById(R.id.edtPassword)
         val passwordReset :TextView = findViewById(R.id.passwordReset)
+        val registerLink :TextView = findViewById(R.id.SignUpLink)
 
         auth = FirebaseAuth.getInstance()
 
@@ -75,6 +76,11 @@ class Login : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please fill the email and press forgot password", Toast.LENGTH_LONG).show()
             }
+        }
+
+        registerLink.setOnClickListener {
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
         }
 
 

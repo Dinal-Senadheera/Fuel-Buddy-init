@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.fuelbuddy.dataClasses.Posted
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -19,8 +20,13 @@ class MenuFragment: Fragment() {
     private val fragmentPosted = PostedFragment()
     private val requestFragment = RequestFragment()
     private lateinit var totalProfit: TextView
+    private lateinit var username: TextView
     private lateinit var requestBtn: Button
     private lateinit var postBtn: Button
+    private lateinit var auth: FirebaseAuth
+    private var name:String ?= null
+    private var uid:String ?= null
+
 
 
 
@@ -28,11 +34,20 @@ class MenuFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        Firebase.database.setPersistenceEnabled(true)
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
+        user?.let {
+            name = it.displayName
+            uid = it.uid
+        }
         val view = inflater.inflate(R.layout.menu_fragment, container, false)
         requestBtn = view.findViewById(R.id.edtRequests)
         postBtn = view.findViewById(R.id.edtPosted)
         totalProfit = view.findViewById(R.id.edtProfit)
+        username = view.findViewById(R.id.Username)
+        username.text = "Hello $name"
+
 
         getTotalProfitData()
         childFragmentManager.beginTransaction().apply {
