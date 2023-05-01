@@ -13,9 +13,6 @@
         android:theme="@style/Theme.FuelBuddy"
         tools:targetApi="31">
         <activity
-            android:name=".VehicleHome"
-            android:exported="false" />
-        <activity
             android:name=".startApp"
             android:exported="false" />
         <activity

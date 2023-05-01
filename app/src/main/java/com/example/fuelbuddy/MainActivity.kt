@@ -13,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
 
     private val fragmentMenu = MenuFragment()
+    private val fragmentAllPosts = AllPostsFragment()
     private lateinit var mainBottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         mainBottomNav.setOnItemSelectedListener { item -> when (item.itemId) {
             R.id.bottom_menu_text -> { replaceFragment(fragmentMenu)
                                         true }
-//            R.id.bottom_home_text -> { replaceFragment(blogFragment)
-//                                        true }
+            R.id.bottom_home_text -> { replaceFragment(fragmentAllPosts)
+                                       true }
 //            R.id.bottom_vehicle_text -> { replaceFragment(accountFragment)
 //                                            true }
             else -> false } }

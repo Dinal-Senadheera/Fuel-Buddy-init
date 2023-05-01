@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="195dp"
         app:srcCompat="@drawable/istockphoto_1266386917_612x612_removebg" />
@@ -19,7 +19,7 @@
         android:id="@+id/welcomeToApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/audiowide"
+
         android:text="@string/welcomeMasage"
         android:textAlignment="center"
         android:textSize="40sp" />
@@ -28,10 +28,10 @@
         android:id="@+id/singinName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/audiowide"
+
         android:text="Sign In to continue"
         android:textAlignment="center"
-        android:textSize="19dp" />
+        android:textSize="19sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,11 +58,13 @@
             android:hint="Passward"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textPassword"
-                android:layout_margin="7dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:inputType="textPassword"
+                android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -83,7 +85,7 @@
         android:backgroundTint="#000000"
         android:textColor="#FFFFFF"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/audiowide"
+
         android:layout_marginBottom="5dp"
         android:layout_margin="5dp"/>
 
@@ -94,6 +96,6 @@
         android:text="New User? SIGN UP"
         android:layout_margin="5dp"
         android:elevation="0dp"
-        android:fontFamily="@font/audiowide"
+
         android:textColor="#000"/>
 </LinearLayout>

@@ -47,10 +47,6 @@ class RequestAdapter(private val requestList: ArrayList<Request>) : RecyclerView
 //        holder.cbTodo.text = data[position].item
         val currentRequest = requestList[position]
 
-//        holder.name.text = currentRequest.Name
-//        holder.qty.text = currentRequest.Qty.toString()
-//        holder.unitProfit.text = currentRequest.UnitProfit.toString()
-
         holder.name.text = currentRequest.Name
         holder.qty.text = currentRequest.Qty.toString()
     }
