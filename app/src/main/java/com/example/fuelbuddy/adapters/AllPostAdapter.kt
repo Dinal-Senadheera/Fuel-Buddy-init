@@ -12,11 +12,20 @@ import com.example.fuelbuddy.R
 
 class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) : RecyclerView.Adapter<AllPostAdapter.ViewHolder>() {
 
+    private lateinit var mListener: onItemClickListener
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+
+        mListener = listener
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val post = LayoutInflater.from(parent.context)
             .inflate(R.layout.all_post_items, parent, false)
         Log.d(TAG,newPostList.toString())
-        return ViewHolder(post)
+        return ViewHolder(post,mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -34,13 +43,15 @@ class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) : Rec
         return newPostList.size
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View,listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
         var fuelType:TextView =  view.findViewById(R.id.Type)
         var qty: TextView = view.findViewById(R.id.quant)
         var unitProfit:TextView = view.findViewById(R.id.profit)
 
-//        var fuelType:TextView =  view.findViewById(R.id.edtType)
-//        var qty: TextView = view.findViewById(R.id.edtQTY)
-//        var unitProfit:TextView = view.findViewById(R.id.edtUnitProfit)
+        init {
+            view.setOnClickListener {
+                listener.onItemClick(bindingAdapterPosition)
+            }
+        }
     }
 }

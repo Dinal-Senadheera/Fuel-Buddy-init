@@ -2,13 +2,10 @@ package com.example.fuelbuddy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.example.fuelbuddy.fragments.AllPostsFragment
+import com.example.fuelbuddy.fragments.MenuFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
