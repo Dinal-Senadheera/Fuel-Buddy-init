@@ -1,5 +1,6 @@
 package com.example.fuelbuddy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -35,6 +36,8 @@ class AddFuel : AppCompatActivity() {
 
         submit.setOnClickListener{
             savePosts()
+            val intent = Intent(this, ConfirmPost::class.java)
+            startActivity(intent)
         }
 
     }
