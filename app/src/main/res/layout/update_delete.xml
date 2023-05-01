@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/header_rectangle" />
+        app:srcCompat="@drawable/header_rectangle"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/profile"
@@ -25,7 +26,8 @@
         android:layout_marginTop="27dp"
         app:layout_constraintStart_toStartOf="@+id/header_add"
         app:layout_constraintTop_toTopOf="@+id/header_add"
-        app:srcCompat="@drawable/baseline_account_circle_24" />
+        app:srcCompat="@drawable/baseline_account_circle_24"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/user_name"
@@ -37,7 +39,8 @@
         android:textColor="@color/black"
         android:textSize="@dimen/normal_text_post"
         app:layout_constraintStart_toStartOf="@+id/header_add"
-        app:layout_constraintTop_toTopOf="@+id/header_add" />
+        app:layout_constraintTop_toTopOf="@+id/header_add"
+        tools:ignore="SpUsage" />
 
     <TextView
         android:id="@+id/add_fuel"
@@ -57,7 +60,7 @@
     <EditText
         android:id="@+id/fuelType"
         android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="67dp"
         android:background="@drawable/details_rectangle"
@@ -66,7 +69,8 @@
         android:hint="  Petrol/Diesel"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_add" />
+        app:layout_constraintTop_toBottomOf="@+id/header_add"
+        tools:ignore="Autofill,HardcodedText" />
 
     <TextView
         android:id="@+id/typeTitle2"
@@ -78,7 +82,8 @@
         android:textColor="@color/black"
         android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuelType" />
+        app:layout_constraintTop_toBottomOf="@+id/fuelType"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <TextView
         android:id="@+id/typeTitle3"
@@ -90,12 +95,13 @@
         android:textColor="@color/black"
         android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_add" />
+        app:layout_constraintTop_toBottomOf="@+id/header_add"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <EditText
         android:id="@+id/qtyInput"
         android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/details_rectangle"
@@ -104,7 +110,9 @@
         android:hint="  Liters"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/typeTitle2" />
+        app:layout_constraintTop_toBottomOf="@+id/typeTitle2"
+        android:autofillHints=""
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/unitPriceTitle"
@@ -116,12 +124,13 @@
         android:textColor="@color/black"
         android:textSize="@dimen/small_text_post"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qtyInput" />
+        app:layout_constraintTop_toBottomOf="@+id/qtyInput"
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <EditText
         android:id="@+id/edt_unitPrice"
         android:layout_width="@dimen/container_width"
-        android:layout_height="@dimen/container_height"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/details_rectangle"
@@ -129,10 +138,11 @@
         android:hint="  Rs 20.00"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unitPriceTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/unitPriceTitle"
+        tools:ignore="Autofill,HardcodedText" />
 
     <Button
-        android:id="@+id/btn_submit"
+        android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -147,7 +157,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_unitPrice" />
 
     <Button
-        android:id="@+id/btn_submit2"
+        android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -160,7 +170,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_submit"
+        app:layout_constraintStart_toEndOf="@+id/btnSubmit"
         app:layout_constraintTop_toBottomOf="@+id/edt_unitPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

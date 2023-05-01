@@ -22,24 +22,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="@dimen/header_width"
-        android:layout_height="629dp"
+        android:layout_height="650dp"
         android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/posts_rectangle" />
+        app:srcCompat="@drawable/posts_rectangle"
+        tools:ignore="ContentDescription,VisualLintBounds" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allPosts"
         android:layout_width="match_parent"
-        android:layout_height="590dp"
+        android:layout_height="550dp"
         android:layout_marginTop="42dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        tools:layout_editor_absoluteX="50dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imgAddFuel"
@@ -49,6 +55,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/plus__1_" />
+        app:srcCompat="@drawable/plus__1_"
+        tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
