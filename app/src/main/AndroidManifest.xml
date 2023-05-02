@@ -39,7 +39,12 @@
         <activity
             android:name=".CreateRequest"
             android:exported="false"/>
-
+        <activity
+            android:name=".AddFuel"
+            android:exported="false"/>
+        <activity
+            android:name=".ConfirmPost"
+            android:exported="false"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

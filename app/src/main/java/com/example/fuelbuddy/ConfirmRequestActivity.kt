@@ -40,7 +40,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
         descriptionRequest.text = des
 
         confirmBtn.setOnClickListener {
-            dbrefPosts.child(postID!!).child("Qty").get().addOnSuccessListener {
+            dbrefPosts.child(postID!!).child("qty").get().addOnSuccessListener {
                 if(parseInt(it.value.toString()) - qty!! <= 0) {
                     val builder = AlertDialog.Builder(this)
                     val message = "Do you want to Allocate the remaining Quantity(${it.value.toString()}L) to this user?"
@@ -58,7 +58,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
                         dbrefPosts.child(postID).removeValue()
 
                         //Delete all related requests since the post is completed
-                        val reqQuery : Query = dbrefReq.orderByChild("Post").equalTo(postID)
+                        val reqQuery : Query = dbrefReq.orderByChild("post").equalTo(postID)
                         reqQuery.addValueEventListener(object : ValueEventListener {
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
                                 for (postSnapshot in dataSnapshot.children) {
