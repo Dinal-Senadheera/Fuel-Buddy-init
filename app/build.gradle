@@ -28,6 +28,11 @@ android {
 //        sourceCompatibility JavaVersion.VERSION_10
 //        targetCompatibility JavaVersion.VERSION_10
     }
+
+    buildFeatures{
+        viewBinding true
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
