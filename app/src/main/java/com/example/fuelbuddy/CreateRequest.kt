@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fuelbuddy.dataClasses.Request
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import org.w3c.dom.Text
 import java.util.*
 
 private lateinit var auth: FirebaseAuth
@@ -63,10 +62,10 @@ class CreateRequest : AppCompatActivity() {
                         Toast.makeText(this,"Error" , Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this,"Request quantity cannot exceed post quantity",Toast.LENGTH_SHORT)
+                    Toast.makeText(this,"Request quantity cannot exceed post quantity",Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this,"Please input the quantity",Toast.LENGTH_SHORT)
+                Toast.makeText(this,"Please input the quantity",Toast.LENGTH_SHORT).show()
             }
         }
 
