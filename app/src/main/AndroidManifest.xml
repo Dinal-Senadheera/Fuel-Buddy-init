@@ -45,6 +45,9 @@
         <activity
             android:name=".ConfirmPost"
             android:exported="false"/>
+        <activity
+            android:name=".Account"
+            android:exported="false" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

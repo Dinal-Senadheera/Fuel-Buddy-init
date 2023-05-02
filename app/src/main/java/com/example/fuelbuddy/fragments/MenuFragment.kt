@@ -14,8 +14,6 @@ import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 @Suppress("DEPRECATION")
 class MenuFragment: Fragment() {
@@ -95,10 +93,8 @@ class MenuFragment: Fragment() {
                     }
 //                    Log.d(TAG, totalProfit.toString())
 //                    totalProfit.text = getString(R.string.expected_profit, total)
-                    val df = DecimalFormat("#.##")
-                    df.roundingMode = RoundingMode.DOWN
-                    val rounded = df.format(total)
-                    totalProfit.text = "Rs. ".plus(rounded)
+                    val formattedTotal = String.format("%.2f",total)
+                    totalProfit.text = "Rs. ".plus(formattedTotal)
                 }
 
             }

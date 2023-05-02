@@ -22,6 +22,18 @@
         app:layout_constraintBottom_toTopOf="@+id/mainBottomNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTopNav"
         tools:layout="@layout/menu_fragment" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainTopNav"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/top_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

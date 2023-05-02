@@ -67,4 +67,8 @@
     <string name="sign_up">Not a User? Sign up</string>
     <string name="Register">Sign up</string>
     <string name="loginPrompt">Already a user? Sign in</string>
+    <string name="account">Account</string>
+    <string name="logout">Sign out</string>
+    <string name="user_account">User Account</string>
+    <string name="profile_photo">profile Photo</string>
 </resources>
