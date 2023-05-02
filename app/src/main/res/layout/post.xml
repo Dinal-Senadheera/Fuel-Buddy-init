@@ -28,7 +28,7 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="@dimen/header_width"
-        android:layout_height="650dp"
+        android:layout_height="800dp"
         android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,7 +38,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/allPosts"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="700dp"
         android:layout_marginTop="42dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

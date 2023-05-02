@@ -43,13 +43,13 @@ class ConfirmPost : AppCompatActivity() {
 
         fuelType.text = Type.toString()
         quantity.text = Qty.toString()
-        unitPrice.text = UnitProfit.toString()
+        unitPrice.text = "Rs.".plus(UnitProfit.toString()).plus(".00")
 
 //        Log.d(TAG, fuelType.text.toString())
 //        Log.d(TAG, quantity.text.toString())
 //        Log.d(TAG, unitPrice.text.toString())
 
-        totalProfit.text = ((Qty!! * UnitProfit!!).toDouble() * (0.99)).toString()
+        totalProfit.text = "Rs.".plus(((Qty!! * UnitProfit!!).toDouble() * (0.99)).toString())
 //        Log.d(TAG, totalProfit.text.toString())
 
         confirm.setOnClickListener{
