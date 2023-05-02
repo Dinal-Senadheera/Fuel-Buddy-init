@@ -71,4 +71,5 @@
     <string name="logout">Sign out</string>
     <string name="user_account">User Account</string>
     <string name="profile_photo">profile Photo</string>
+    <string name="starting_logo">Starting logo</string>
 </resources>

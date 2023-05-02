@@ -40,7 +40,7 @@
         tools:ignore="ContentDescription,VisualLintBounds" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/startLogoImg"
         android:layout_width="280dp"
         android:layout_height="100dp"
         android:layout_marginStart="72dp"
@@ -66,7 +66,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/startLogoImg" />
 
     <TextView
         android:id="@+id/profitText"
@@ -79,10 +79,10 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="@dimen/small_text_post"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/startLogoImg"
+        app:layout_constraintEnd_toEndOf="@+id/startLogoImg"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/startLogoImg"
         tools:ignore="SpUsage,TextSizeCheck" />
 
     <TextView
@@ -96,8 +96,8 @@
         android:textColor="@color/primary"
         android:textSize="@dimen/large_text_post"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintStart_toStartOf="@+id/startLogoImg"
+        app:layout_constraintTop_toTopOf="@+id/startLogoImg" />
 
     <TextView
         android:id="@+id/fuelType1"

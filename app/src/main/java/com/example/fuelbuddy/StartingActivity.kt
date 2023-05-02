@@ -1,14 +1,17 @@
 package com.example.fuelbuddy
 
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class StartingActivity : AppCompatActivity() {
-
+    private lateinit var splashScreenImg : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         // on below line we are configuring
@@ -19,15 +22,27 @@ class StartingActivity : AppCompatActivity() {
 //        )
         setContentView(R.layout.activity_start_app)
 
-        val handler = Handler(Looper.getMainLooper())
+//        val handler = Handler(Looper.getMainLooper())
+//
+//        handler.postDelayed({
+//            val i = Intent(
+//                this@StartingActivity,
+//                Login::class.java
+//            )
+//            startActivity(i)
+//            finish()
+//        }, 1000)
 
-        handler.postDelayed({
+        splashScreenImg = findViewById(R.id.startLogoImg)
+
+        splashScreenImg.alpha = 0f
+        splashScreenImg.animate().setDuration(1500).alpha(1f).withEndAction{
             val i = Intent(
                 this@StartingActivity,
                 Login::class.java
             )
             startActivity(i)
-            finish()
-        }, 1000)
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
+        }
     }
 }
