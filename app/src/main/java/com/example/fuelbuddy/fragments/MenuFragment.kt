@@ -1,5 +1,6 @@
-package com.example.fuelbuddy
+package com.example.fuelbuddy.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,11 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fuelbuddy.Login
+import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 
 @Suppress("DEPRECATION")
 class MenuFragment: Fragment() {
@@ -36,7 +36,9 @@ class MenuFragment: Fragment() {
     ): View? {
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
-
+        if( user == null) {
+            startActivity(Intent(activity, Login::class.java))
+        }
         user?.let {
             name = it.displayName
             uid = it.uid
@@ -46,7 +48,7 @@ class MenuFragment: Fragment() {
         postBtn = view.findViewById(R.id.edtPosted)
         totalProfit = view.findViewById(R.id.edtProfit)
         username = view.findViewById(R.id.Username)
-        username.text = "Hello $name"
+        username.text = "Hello ".plus(name)
 
 
         getTotalProfitData()
@@ -55,14 +57,6 @@ class MenuFragment: Fragment() {
             commit()
         }
 
-//        childFragmentManager.setFragmentResultListener("requestKey",this) { key, bundle ->
-//            val result = bundle.getString("bundleKey")
-//            if (result != null) {
-//                Log.d(TAG, result)
-//            }
-//            val profit = "Rs.$result"
-//            totalProfit.text = profit
-//        }
 
         requestBtn.setOnClickListener {
             requestBtn.setBackgroundColor(resources.getColor(R.color.primary))
@@ -88,17 +82,20 @@ class MenuFragment: Fragment() {
         val dbref = FirebaseDatabase.getInstance().getReference("Posts")
         dbref.keepSynced(true)
 
-        dbref.addValueEventListener(object : ValueEventListener {
+        val posts : Query = dbref.orderByChild("userID").equalTo(uid)
+        posts.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    var total = 0
+                    var total = 0.00
                     for (postSnapshot in snapshot.children) {
                         val post = postSnapshot.getValue( Posted::class.java)
-                        total += (post?.Qty?.times(post.UnitProfit!!)!!)
+                        total += ((post?.Qty?.times(post.UnitProfit!!)!!).toDouble() * 0.99)
                     }
 //                    Log.d(TAG, totalProfit.toString())
-                    totalProfit.text = "Rs.$total"
+//                    totalProfit.text = getString(R.string.expected_profit, total)
+                    totalProfit.text = "Rs. ".plus(total)
                 }
+
             }
 
             override fun onCancelled(error: DatabaseError) {

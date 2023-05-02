@@ -75,7 +75,6 @@ class ConfirmRequestActivity : AppCompatActivity() {
                             override fun onCancelled(databaseError: DatabaseError) {
                                 // Getting Post failed, log a message
                                 Log.w(TAG, "loadReqQuery:onCancelled", databaseError.toException())
-                                // ...
                             }
                         })
                         val intent = Intent(this,MainActivity::class.java)
