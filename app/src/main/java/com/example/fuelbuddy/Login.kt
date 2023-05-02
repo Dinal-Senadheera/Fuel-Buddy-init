@@ -52,7 +52,7 @@ class Login : AppCompatActivity() {
                             Log.w(TAG, "signInWithEmail:failure", task.exception)
                             Toast.makeText(
                                 baseContext,
-                                "Authentication failed.",
+                                task.exception?.message,
                                 Toast.LENGTH_SHORT,
                             ).show()
 //                            updateUI(null)
