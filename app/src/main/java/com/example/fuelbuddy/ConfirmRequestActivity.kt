@@ -37,7 +37,12 @@ class ConfirmRequestActivity : AppCompatActivity() {
 
         nameRequest.text = name
         qtyRequest.text = qty.toString()
-        descriptionRequest.text = des
+        if (des?.length != 0) {
+            descriptionRequest.text = des
+        } else {
+            descriptionRequest.text = "User did not give a description"
+        }
+
 
         confirmBtn.setOnClickListener {
             dbrefPosts.child(postID!!).child("qty").get().addOnSuccessListener {
@@ -88,7 +93,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
                 } else {
                     dbrefPosts
                         .child(postID)
-                        .child("Qty")
+                        .child("qty")
                         .setValue(ServerValue.increment(-qty.toDouble()))
                     dbrefReq.child(reqID!!).removeValue().addOnSuccessListener {
                         val intent = Intent(this@ConfirmRequestActivity,MainActivity::class.java)
