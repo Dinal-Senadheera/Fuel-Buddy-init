@@ -130,18 +130,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container4" />
+        app:layout_constraintTop_toBottomOf="@+id/container4"
+        tools:ignore="TextSizeCheck" />
 
     <EditText
         android:id="@+id/edtQty"
-        android:layout_width="@dimen/container_width_post"
+        android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/details_rectangle"
         android:backgroundTint="@color/background1"
         android:ems="10"
         android:hint="@string/qty_hint"
         android:inputType="number"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/qtyL"
@@ -163,16 +168,18 @@
 
     <EditText
         android:id="@+id/edtDescriptionBuy"
-        android:layout_width="@dimen/container_width"
-        android:layout_height="104dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="0dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/details_rectangle"
         android:ems="10"
         android:hint="@string/des_hint"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_buy" />
