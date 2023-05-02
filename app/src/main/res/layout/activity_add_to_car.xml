@@ -59,7 +59,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp" />
+                android:layout_margin="7dp"
+                android:background="@drawable/login_rectangle" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/VehicleType"
@@ -71,7 +72,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp" />
+                android:layout_margin="7dp"
+                android:background="@drawable/login_rectangle" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/chassisNumber"
@@ -83,7 +85,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp" />
+                android:layout_margin="7dp"
+                android:background="@drawable/login_rectangle" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/puleType"
@@ -95,7 +98,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp" />
+                android:layout_margin="7dp"
+                android:background="@drawable/login_rectangle" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
