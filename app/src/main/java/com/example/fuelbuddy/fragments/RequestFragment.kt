@@ -66,9 +66,9 @@ class RequestFragment:Fragment() {
                     var keyList = arrayListOf<String>()
                     for(requestSnapshot in snapshot.children) {
                         val request = requestSnapshot.getValue(/* valueType = */ Request::class.java)
-                        keyList.add(requestSnapshot.toString())
+                        keyList.add(requestSnapshot.key.toString())
 //                        request?.key = requestSnapshot.key
-                        Log.d(TAG, request.toString())
+//                        Log.d(TAG, request.toString())
                         requestArrayList.add(request!!)
                     }
 
@@ -78,6 +78,7 @@ class RequestFragment:Fragment() {
 //                            Log.d(TAG, position.toString())
                             val intent = Intent(activity, ConfirmRequestActivity::class.java)
 //                            intent.putExtra("request", requestArrayList[position])
+                            Log.d(TAG, keyList[position].toString())
                             intent.putExtra("Name",requestArrayList[position].Name)
                             intent.putExtra("PostID",requestArrayList[position].Post)
                             intent.putExtra("ReqID",keyList[position])
