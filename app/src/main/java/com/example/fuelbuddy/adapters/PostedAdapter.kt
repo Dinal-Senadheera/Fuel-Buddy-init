@@ -10,7 +10,16 @@ import com.example.fuelbuddy.R
 
 class PostedAdapter(private val postList: java.util.ArrayList<Posted>) : RecyclerView.Adapter<PostedAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private lateinit var mListener: onItemClickListener
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mListener = listener
+    }
+
+    class ViewHolder(view: View,listener: onItemClickListener) : RecyclerView.ViewHolder(view) {
         var qty: TextView
         var fuelType:TextView
         var unitProfit:TextView
@@ -18,6 +27,10 @@ class PostedAdapter(private val postList: java.util.ArrayList<Posted>) : Recycle
             qty = view.findViewById(R.id.edtQTY)
             fuelType = view.findViewById(R.id.edtType)
             unitProfit = view.findViewById(R.id.edtUnitProfit)
+
+            view.setOnClickListener {
+                listener.onItemClick(bindingAdapterPosition)
+            }
         }
     }
 
@@ -25,10 +38,9 @@ class PostedAdapter(private val postList: java.util.ArrayList<Posted>) : Recycle
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.posted_item, parent, false)
 
-        return ViewHolder(view)
+        return ViewHolder(view, mListener)
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.cbTodo.text = data[position].item
         val currentPost = postList[position]
         holder.fuelType.text = currentPost.Type
         holder.qty.text = currentPost.Qty.toString()
@@ -36,5 +48,4 @@ class PostedAdapter(private val postList: java.util.ArrayList<Posted>) : Recycle
     }
 
     override fun getItemCount() = postList.size
-//    override fun getItemCount() = data.size
 }
