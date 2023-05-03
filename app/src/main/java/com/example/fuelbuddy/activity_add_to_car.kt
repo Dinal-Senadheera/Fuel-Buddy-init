@@ -6,13 +6,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 
 class activity_add_to_car : AppCompatActivity() {
-    private lateinit var vehicleNumber: EditText
-    private lateinit var VehicleType: EditText
-    private lateinit var chassisNumber: EditText
-    private lateinit var puleType: EditText
+    private lateinit var vehicleNumber: TextInputLayout
+    private lateinit var VehicleType: TextInputLayout
+    private lateinit var chassisNumber: TextInputLayout
+    private lateinit var puleType: TextInputLayout
     private lateinit var vehiShu: Button
     private lateinit var userName: TextView
     private lateinit var auth: FirebaseAuth

@@ -58,6 +58,8 @@ class Account: AppCompatActivity() {
                             ).show()
                         }
                     }
+            } else {
+                Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
 
         }
