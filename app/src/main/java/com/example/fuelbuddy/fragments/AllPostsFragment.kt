@@ -11,11 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.AddFuel
-import com.example.fuelbuddy.ConfirmRequestActivity
 import com.example.fuelbuddy.CreateRequest
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.AllPostAdapter
-import com.example.fuelbuddy.adapters.RequestAdapter
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.database.*
 
@@ -26,11 +24,6 @@ class AllPostsFragment:Fragment() {
     private lateinit var newPostList: ArrayList<Posted>
     private lateinit var postRecyclerView: RecyclerView
     private lateinit var btnAddFuel : ImageView
-
-//    private var totalProfit: Int? = null
-//    lateinit var type : Array<String>
-//    lateinit var qty : Array<Int>
-//    lateinit var profit : Array<Int>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +56,7 @@ class AllPostsFragment:Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     newPostList = arrayListOf()
-                    var keyList = arrayListOf<String>()
+                    val keyList = arrayListOf<String>()
                     for (postSnapshot in snapshot.children) {
                         val post = postSnapshot.getValue(/* valueType = */ Posted::class.java)
                         newPostList.add(post!!)

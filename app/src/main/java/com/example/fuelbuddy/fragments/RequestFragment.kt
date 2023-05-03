@@ -63,7 +63,7 @@ class RequestFragment:Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
                     requestArrayList = arrayListOf()
-                    var keyList = arrayListOf<String>()
+                    val keyList = arrayListOf<String>()
                     for(requestSnapshot in snapshot.children) {
                         val request = requestSnapshot.getValue(/* valueType = */ Request::class.java)
                         keyList.add(requestSnapshot.key.toString())
@@ -78,7 +78,7 @@ class RequestFragment:Fragment() {
 //                            Log.d(TAG, position.toString())
                             val intent = Intent(activity, ConfirmRequestActivity::class.java)
 //                            intent.putExtra("request", requestArrayList[position])
-                            Log.d(TAG, keyList[position].toString())
+                            Log.d(TAG, keyList[position])
                             intent.putExtra("Name",requestArrayList[position].Name)
                             intent.putExtra("PostID",requestArrayList[position].Post)
                             intent.putExtra("ReqID",keyList[position])

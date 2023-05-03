@@ -63,7 +63,13 @@ class PostedFragment:Fragment() {
                         postArrayList.add(post!!)
                     }
 
-                    recyclerView.adapter = PostedAdapter(postArrayList)
+                    val adapter = PostedAdapter(postArrayList)
+                    adapter.setOnItemClickListener(object: PostedAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+//                            Log.d(TAG, position.toString()
+                        }
+                    })
+                    recyclerView.adapter = adapter
 
                 }
             }
