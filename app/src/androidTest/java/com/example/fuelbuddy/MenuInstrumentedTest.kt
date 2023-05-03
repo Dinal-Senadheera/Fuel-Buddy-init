@@ -37,7 +37,6 @@ class MenuInstrumentedTest {
 
     @get:Rule
     val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
-//    val activityTestRule = ActivityTestRule(CreateRequest::class.java)
     private lateinit var activityScenario: ActivityScenario<MainActivity>
 
 
