@@ -51,6 +51,8 @@ class AllPostsFragment:Fragment() {
     private fun getPostData() {
         dbref = FirebaseDatabase.getInstance().getReference("Posts")
 
+//        val posts : Query = dbref.orderByChild("userID").whereNotEqualTo("UserID",)
+//        pass uerID and check the userID before this query
 
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

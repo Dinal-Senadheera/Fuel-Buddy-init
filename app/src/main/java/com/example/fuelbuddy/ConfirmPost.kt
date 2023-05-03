@@ -1,5 +1,6 @@
 package com.example.fuelbuddy
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -54,6 +55,9 @@ class ConfirmPost : AppCompatActivity() {
 
         confirm.setOnClickListener{
             savePosts()
+
+            var intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
 
     }
