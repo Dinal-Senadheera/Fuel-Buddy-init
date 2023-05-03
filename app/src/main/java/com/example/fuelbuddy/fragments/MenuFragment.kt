@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.fuelbuddy.Calculations
 import com.example.fuelbuddy.Login
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.Posted
@@ -86,14 +87,15 @@ class MenuFragment: Fragment() {
         posts.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    var total = 0.00
+                    var total = 0
                     for (postSnapshot in snapshot.children) {
                         val post = postSnapshot.getValue( Posted::class.java)
-                        total += ((post?.Qty?.times(post.UnitProfit!!)!!).toDouble() * 0.99)
+                        total += ((post?.Qty?.times(post.UnitProfit!!)!!))
                     }
 //                    Log.d(TAG, totalProfit.toString())
 //                    totalProfit.text = getString(R.string.expected_profit, total)
-                    val formattedTotal = String.format("%.2f",total)
+                    val calculations = Calculations(total, 99,100)
+                    val formattedTotal = String.format("%.2f",calculations.doubleMultiplication())
                     totalProfit.text = "Rs. ".plus(formattedTotal)
                 }
 

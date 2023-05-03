@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.fuelbuddy.fragments.AllPostsFragment
 import com.example.fuelbuddy.fragments.MenuFragment
+import com.example.fuelbuddy.fragments.vehicleFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private val fragmentMenu = MenuFragment()
     private val fragmentAllPosts = AllPostsFragment()
+    private val fragmentVehicle = vehicleFragment()
     private lateinit var mainBottomNav: BottomNavigationView
     private lateinit var mainTopNav : androidx.appcompat.widget.Toolbar
 
@@ -31,8 +33,8 @@ class MainActivity : AppCompatActivity() {
                                         true }
             R.id.bottom_home_text -> { replaceFragment(fragmentAllPosts)
                                        true }
-//            R.id.bottom_vehicle_text -> { replaceFragment(accountFragment)
-//                                            true }
+            R.id.bottom_vehicle_text -> { replaceFragment(fragmentVehicle)
+                                           true }
             else -> false } }
 
         mainTopNav = findViewById(R.id.mainTopNav)

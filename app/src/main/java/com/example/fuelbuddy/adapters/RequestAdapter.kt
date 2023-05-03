@@ -1,7 +1,5 @@
 package com.example.fuelbuddy.adapters
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.Request
+import com.example.fuelbuddy.dataClasses.vehicleList
 
 class RequestAdapter(private val requestList: ArrayList<Request>) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
 
@@ -16,6 +15,7 @@ class RequestAdapter(private val requestList: ArrayList<Request>) : RecyclerView
     interface onItemClickListener{
         fun onItemClick(position: Int)
     }
+
 
     fun setOnItemClickListener(listener: onItemClickListener) {
 

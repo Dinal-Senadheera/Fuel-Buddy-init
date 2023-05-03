@@ -47,8 +47,6 @@ class RequestFragment:Fragment() {
         recyclerView.adapter = RequestAdapter(requestArrayList)
         getRequestData()
 
-
-
         return view
     }
 
