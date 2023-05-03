@@ -57,9 +57,9 @@ class vehicleFragment:Fragment() {
 
     private fun getRequestData() {
 //        db = Firebase.firestore
-        dbref = FirebaseDatabase.getInstance().getReference("Requests")
+        dbref = FirebaseDatabase.getInstance().getReference("vehicle")
 
-        val requests : Query = dbref.orderByChild("postUserID").equalTo(uid)
+        val requests : Query = dbref.orderByChild("userID").equalTo(uid)
 
         requests.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
