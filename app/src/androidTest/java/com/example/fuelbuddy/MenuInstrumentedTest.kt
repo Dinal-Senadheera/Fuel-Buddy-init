@@ -1,7 +1,6 @@
 package com.example.fuelbuddy
 
 import android.content.Context
-import android.view.View
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -9,6 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.google.firebase.auth.FirebaseAuth
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -23,8 +23,10 @@ import org.junit.runner.RunWith
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
-    private lateinit var decorView: View
+class MenuInstrumentedTest {
+    private lateinit var auth: FirebaseAuth
+    private var name:String ?= null
+
     private lateinit var appContext: Context
     @Test
     fun useAppContext() {
@@ -42,11 +44,13 @@ class ExampleInstrumentedTest {
     @Before
     fun setUp() {
         activityScenario = activityScenarioRule.scenario
+        auth = FirebaseAuth.getInstance()
+        name = auth.currentUser?.displayName
     }
 
     @Test
     fun testName(){
-        onView(withId(R.id.Username)).check(matches(withText("Hello Dinal S")))
+        onView(withId(R.id.Username)).check(matches(withText("Hello $name")))
     }
 
     @After
