@@ -50,7 +50,6 @@ class activity_add_to_car : AppCompatActivity() {
             saveVehicle()
         }
 
-
     }
     private fun saveVehicle() {
 
