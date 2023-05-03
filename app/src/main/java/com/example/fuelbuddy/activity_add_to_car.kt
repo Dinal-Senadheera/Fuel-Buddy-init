@@ -61,7 +61,7 @@ class activity_add_to_car : AppCompatActivity() {
         val vehicleList = vehicleList(userID ,vehinum , vehiType , chassisNumber,puleType)
 
         database.child(uniqueID).setValue(vehicleList).addOnCompleteListener{
-            Toast.makeText(this, "Post added Successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "vehicle added Successfully", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
         }
