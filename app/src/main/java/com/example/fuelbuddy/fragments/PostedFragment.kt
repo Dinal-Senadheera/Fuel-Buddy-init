@@ -1,7 +1,10 @@
 package com.example.fuelbuddy.fragments
 
+import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +12,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fuelbuddy.ConfirmRequestActivity
+import com.example.fuelbuddy.EditPost
 import com.example.fuelbuddy.Login
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.PostedAdapter
+import com.example.fuelbuddy.adapters.RequestAdapter
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -54,32 +60,41 @@ class PostedFragment:Fragment() {
 
         val posts : Query = dbref.orderByChild("userID").equalTo(uid)
 
-        posts.addValueEventListener(object: ValueEventListener{
+        posts.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()) {
+                if (snapshot.exists()) {
                     postArrayList = arrayListOf()
-                    for(postSnapshot in snapshot.children) {
+                    val KeyList = arrayListOf<String>()
+                    for (postSnapshot in snapshot.children) {
                         val post = postSnapshot.getValue(/* valueType = */ Posted::class.java)
+                        KeyList.add(postSnapshot.key.toString())
                         postArrayList.add(post!!)
                     }
 
                     val adapter = PostedAdapter(postArrayList)
-                    adapter.setOnItemClickListener(object: PostedAdapter.onItemClickListener{
+                    adapter.setOnClickListener(object: PostedAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 //                            Log.d(TAG, position.toString()
+                            val intent = Intent(activity , EditPost:: class.java)
+                            intent.putExtra("Type",postArrayList[position].Type)
+                            intent.putExtra("UserID",postArrayList[position].userID )
+                            intent.putExtra("PostID", KeyList[position])
+                            intent.putExtra("Qty",postArrayList[position].Qty)
+                            intent.putExtra("UnitPrice",postArrayList[position].UnitProfit)
+                            startActivity(intent)
                         }
                     })
                     recyclerView.adapter = adapter
 
                 }
+
+
+
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context,"$error", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "$error", Toast.LENGTH_LONG).show()
             }
-
         })
-
     }
-
 }
