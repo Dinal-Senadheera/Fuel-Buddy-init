@@ -31,7 +31,7 @@ class AllPostsFragment:Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.post, container, false)
-        btnAddFuel = view.findViewById(R.id.imgAddFuel)
+        btnAddFuel = view.findViewById(R.id.btn_addFuel)
         postRecyclerView = view.findViewById(R.id.allPosts)
         postRecyclerView.layoutManager = LinearLayoutManager(view.context)
         postRecyclerView.setHasFixedSize(true)
