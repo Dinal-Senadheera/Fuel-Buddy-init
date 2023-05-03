@@ -46,11 +46,13 @@ class activity_add_to_car : AppCompatActivity() {
         userName = findViewById(R.id.userName)
         userName.text = "$name"
 
-
+        vehiShu.setOnClickListener {
+            saveVehicle()
+        }
 
 
     }
-    private fun savePosts() {
+    private fun saveVehicle() {
 
         val uniqueID: String = UUID.randomUUID().toString()
         val userID: String = auth.currentUser?.uid.toString()
