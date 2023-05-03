@@ -54,6 +54,7 @@ class activity_add_to_car : AppCompatActivity() {
 
         val uniqueID: String = UUID.randomUUID().toString()
         val userID: String = auth.currentUser?.uid.toString()
+        val vehinum = vehicleNumber.editText?.text.toString()
         val vehicleList = vehicleList(userID ,vehinum , vehiType , chassisNumber,puleType)
 
         database.child(uniqueID).setValue(vehicleList).addOnCompleteListener{
