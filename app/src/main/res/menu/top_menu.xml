@@ -4,8 +4,8 @@
 
     <item
         android:id="@+id/top_account_text"
-        android:title="@string/account" />
+        android:title="Account" />
     <item
         android:id="@+id/top_logout_text"
-        android:title="@string/logout" />
+        android:title="Sign out" />
 </menu>
