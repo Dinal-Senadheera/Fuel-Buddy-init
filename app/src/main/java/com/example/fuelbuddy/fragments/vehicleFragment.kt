@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +23,7 @@ class vehicleFragment:Fragment() {
     private lateinit var dbref: DatabaseReference
     private lateinit var vehicleArrayList: ArrayList<vehicleList>
     private lateinit var vehicleRecycleView: RecyclerView
+    private lateinit var btnAddVehicle : Button
     private var uid: String? = null
 
 
@@ -32,21 +35,25 @@ class vehicleFragment:Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.activity_vehicle_lobby, container, false)
-
+        btnAddVehicle = view.findViewById(R.id.addNewVehicle)
         vehicleRecycleView = view.findViewById(R.id.vehicleList)
         vehicleRecycleView.layoutManager = LinearLayoutManager(view.context)
         vehicleRecycleView.setHasFixedSize(true)
+
+        btnAddVehicle.setOnClickListener {
+            val intent = Intent(activity,activity_add_to_car ::class.java)
+            startActivity(intent)
+        }
+
         vehicleArrayList = arrayListOf()
         vehicleRecycleView.adapter = vehicleAdapter(vehicleArrayList)
+
         getRequestData()
 
 
 
         return view
     }
-
-
-
 
     private fun getRequestData() {
 //        db = Firebase.firestore
