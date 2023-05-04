@@ -1,23 +1,19 @@
 package com.example.fuelbuddy.fragments
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fuelbuddy.ConfirmRequestActivity
 import com.example.fuelbuddy.EditPost
 import com.example.fuelbuddy.Login
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.PostedAdapter
-import com.example.fuelbuddy.adapters.RequestAdapter
 import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -28,6 +24,7 @@ class PostedFragment:Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var postArrayList: ArrayList<Posted>
     private lateinit var recyclerView: RecyclerView
+    private lateinit var emptyView: TextView
     private var uid:String ?= null
 //    private var totalProfit: Int? = null
 
@@ -43,6 +40,7 @@ class PostedFragment:Fragment() {
         uid = user?.uid
 
         val view = inflater.inflate(R.layout.posted_fragment, container, false)
+        emptyView = view.findViewById(R.id.postEmptyView)
         recyclerView = view.findViewById(R.id.postedList)
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.setHasFixedSize(true)
@@ -85,7 +83,13 @@ class PostedFragment:Fragment() {
                         }
                     })
                     recyclerView.adapter = adapter
-
+                    if(postArrayList.isEmpty()) {
+                        recyclerView.visibility = View.GONE
+                        emptyView.visibility = View.VISIBLE
+                    } else {
+                        recyclerView.visibility = View.VISIBLE
+                        emptyView.visibility = View.GONE
+                    }
                 }
 
 
