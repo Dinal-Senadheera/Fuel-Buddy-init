@@ -28,9 +28,6 @@ class vehicleFragment:Fragment() {
     private lateinit var btnAddVehicle : Button
     private var uid: String? = null
 
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -80,6 +77,7 @@ class vehicleFragment:Fragment() {
 //                        request?.key = requestSnapshot.key
 //                        Log.d(TAG, request.toString())
                         vehicleArrayList.add(vehicleList!!)
+
                     }
 
                     val adapter = vehicleAdapter(vehicleArrayList)

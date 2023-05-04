@@ -11,53 +11,43 @@
         android:layout_height="150dp"
         android:background="@drawable/header_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="68dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/userName"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="69dp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_marginTop="44dp"
         android:text="@string/vechicleTopic"
-        android:textSize="34sp"
+        android:textColor="#040404"
+        android:textSize="54sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="83dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
-            android:id="@+id/addNewVehicle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="100dp"
-            android:layout_marginBottom="143dp"
-            android:backgroundTint="#F9DA06"
-            android:text="Add new Vehicle"
-            android:textColor="#070707"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/addNewVehicle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="100dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#F9DA06"
+        android:text="Add new Vehicle"
+        android:textColor="#070707"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleList" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vehicleList"
-        android:layout_width="415dp"
-        android:layout_height="360dp"
+        android:layout_width="408dp"
+        android:layout_height="346dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"

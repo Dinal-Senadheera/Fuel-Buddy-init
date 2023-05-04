@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.dataClasses.Posted
 import com.example.fuelbuddy.R
 
-class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) : RecyclerView.Adapter<AllPostAdapter.ViewHolder>() {
+class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) :
+    RecyclerView.Adapter<AllPostAdapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
     interface onItemClickListener{
