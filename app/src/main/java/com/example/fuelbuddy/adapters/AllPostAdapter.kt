@@ -9,9 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.dataClasses.Posted
 import com.example.fuelbuddy.R
+import com.google.firebase.auth.FirebaseAuth
 
 class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) : RecyclerView.Adapter<AllPostAdapter.ViewHolder>() {
-
     private lateinit var mListener: onItemClickListener
     interface onItemClickListener{
         fun onItemClick(position: Int)
