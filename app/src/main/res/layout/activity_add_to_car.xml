@@ -35,7 +35,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="64dp"
         android:text="@string/Add_vehiclesTopic"
         android:textColor="#070707"
         android:textSize="34sp"

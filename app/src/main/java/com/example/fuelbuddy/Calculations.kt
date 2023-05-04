@@ -7,4 +7,5 @@ class Calculations(
 ) {
     fun doubleMultiplication() = number1.toDouble() * doubleDivision()
     fun doubleDivision() = number2.toDouble() / number3
+    fun toDoubleMultiplication() = (number1 * number2).toDouble()
 }

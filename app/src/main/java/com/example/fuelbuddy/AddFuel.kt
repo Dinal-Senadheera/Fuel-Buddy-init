@@ -36,10 +36,11 @@ class AddFuel : AppCompatActivity() {
         userName = findViewById(R.id.userName)
         userName.text = "$name"
 
-
         submit.setOnClickListener{
+
             val intent = Intent(this, ConfirmPost::class.java)
-            intent.putExtra("Type" , fuelType.text.toString())
+
+            intent.putExtra("Type", fuelType.text.toString())
             intent.putExtra("Qty" , quantity.text.toString().toInt())
             intent.putExtra("UnitProfit" , profit.text.toString().toInt())
 //            Log.d(TAG, fuelType.toString())
