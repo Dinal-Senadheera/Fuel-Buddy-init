@@ -72,4 +72,6 @@
     <string name="user_account">User Account</string>
     <string name="profile_photo">profile Photo</string>
     <string name="starting_logo">Starting logo</string>
+    <string name="emptyPosts">The posts that you add will be displayed here</string>
+    <string name="empty_requests">The requests for your posts will appear here</string>
 </resources>

@@ -17,10 +17,12 @@ import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.vehicleAdapter
 import com.example.fuelbuddy.dataClasses.Request
 import com.example.fuelbuddy.dataClasses.vehicleList
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class vehicleFragment:Fragment() {
     private lateinit var dbref: DatabaseReference
+    private lateinit var auth: FirebaseAuth
     private lateinit var vehicleArrayList: ArrayList<vehicleList>
     private lateinit var vehicleRecycleView: RecyclerView
     private lateinit var btnAddVehicle : Button
@@ -33,6 +35,12 @@ class vehicleFragment:Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        if( user == null) {
+            startActivity(Intent(activity, Login::class.java))
+        }
+        uid = user?.uid
 
         val view = inflater.inflate(R.layout.activity_vehicle_lobby, container, false)
         btnAddVehicle = view.findViewById(R.id.addNewVehicle)
@@ -57,9 +65,9 @@ class vehicleFragment:Fragment() {
 
     private fun getRequestData() {
 //        db = Firebase.firestore
-        dbref = FirebaseDatabase.getInstance().getReference("Requests")
+        dbref = FirebaseDatabase.getInstance().getReference("vehicle")
 
-        val requests : Query = dbref.orderByChild("postUserID").equalTo(uid)
+        val requests : Query = dbref.orderByChild("userID").equalTo(uid)
 
         requests.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
