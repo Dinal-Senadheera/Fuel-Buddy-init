@@ -1,7 +1,9 @@
 package com.example.fuelbuddy.fragments
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -72,13 +74,14 @@ class PostedFragment:Fragment() {
                     val adapter = PostedAdapter(postArrayList)
                     adapter.setOnClickListener(object: PostedAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
-//                            Log.d(TAG, position.toString()
+                            Log.d(TAG, position.toString())
                             val intent = Intent(activity , EditPost:: class.java)
                             intent.putExtra("Type",postArrayList[position].Type)
                             intent.putExtra("UserID",postArrayList[position].userID )
                             intent.putExtra("PostID", KeyList[position])
                             intent.putExtra("Qty",postArrayList[position].Qty)
                             intent.putExtra("UnitPrice",postArrayList[position].UnitProfit)
+                            Log.d(TAG,postArrayList[position].toString())
                             startActivity(intent)
                         }
                     })
