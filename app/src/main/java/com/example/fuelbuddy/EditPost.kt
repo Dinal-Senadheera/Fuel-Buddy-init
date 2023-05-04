@@ -23,7 +23,7 @@ class EditPost : AppCompatActivity() {
     private lateinit var fuelType : EditText
     private lateinit var qty : EditText
     private lateinit var uPrice : EditText
-    //private lateinit var btnUpdate : Button
+    private lateinit var btnUpdate : Button
     //private lateinit var btnDelete : Button
     private lateinit var userName: TextView
     var Type : String ?= null
@@ -47,10 +47,10 @@ class EditPost : AppCompatActivity() {
         userName = findViewById(R.id.userName)
         userName.text = "$name"
 
-        val type: EditText = findViewById(R.id.fuelType)
-        val fqty: EditText = findViewById(R.id.qtyInput)
-        val price: EditText = findViewById(R.id.edt_unitPrice)
-       // val update: Button = findViewById(R.id.btnSubmit)
+        fuelType = findViewById(R.id.fuelType)
+        qty = findViewById(R.id.qtyInput)
+        uPrice= findViewById(R.id.edt_unitPrice)
+        btnUpdate= findViewById(R.id.btnSubmit)
         //val delete: Button = findViewById(R.id.btn_delete)
 
         val bundle: Bundle? = intent.extras
@@ -59,30 +59,30 @@ class EditPost : AppCompatActivity() {
         UnitProfit = bundle?.getInt("UnitPrice")
 
 
-        type.setText(Type.toString())
-        fqty.setText(Qty.toString())
-        price.setText((UnitProfit.toString()))
+        fuelType.setText(Type.toString())
+        qty.setText(Qty.toString())
+        uPrice.setText((UnitProfit.toString()))
 
-        Log.d(TAG,price.text.toString())
+//        Log.d(TAG,price.text.toString())
 
 
-//        btnUpdate.setOnClickListener{
-//            updatePosts()
-//
-//            var intent = Intent(this,MainActivity::class.java)
-//            startActivity(intent)
-//        }
+        btnUpdate.setOnClickListener{
+            updatePosts()
+
+            var intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }
 
-//    private fun updatePosts() {
-//        val editType = fuelType.text.toString()
-//        val editQty = fuelType.text.toString()
-//        val editProfit = qty.text.toString()
-//
-//
-//
-//
-//    }
+    private fun updatePosts() {
+        val editType = fuelType.text.toString()
+        val editQty = fuelType.text.toString()
+        val editProfit = qty.text.toString()
+
+
+
+
+    }
 }

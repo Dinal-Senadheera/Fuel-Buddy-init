@@ -57,7 +57,7 @@ class AllPostsFragment:Fragment() {
         val user = auth.currentUser
         val uid = user?.uid
 
-     //   val posts : Query = dbref.orderByChild("userID").whereNotEqualTo(uid),false)
+//        val posts : Query = dbref.orderByChild("userID").equalTo(uid)
 
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
