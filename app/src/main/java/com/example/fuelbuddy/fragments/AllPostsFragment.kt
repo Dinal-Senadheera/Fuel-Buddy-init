@@ -2,6 +2,7 @@ package com.example.fuelbuddy.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.service.autofill.Validators.not
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.example.fuelbuddy.CreateRequest
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.AllPostAdapter
 import com.example.fuelbuddy.dataClasses.Posted
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 //import com.google.firebase.firestore.ktx.firestore
@@ -24,6 +26,7 @@ class AllPostsFragment:Fragment() {
     private lateinit var newPostList: ArrayList<Posted>
     private lateinit var postRecyclerView: RecyclerView
     private lateinit var btnAddFuel : ImageView
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +34,7 @@ class AllPostsFragment:Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.post, container, false)
-        btnAddFuel = view.findViewById(R.id.imgAddFuel)
+        btnAddFuel = view.findViewById(R.id.btn_addFuel)
         postRecyclerView = view.findViewById(R.id.allPosts)
         postRecyclerView.layoutManager = LinearLayoutManager(view.context)
         postRecyclerView.setHasFixedSize(true)
@@ -50,9 +53,11 @@ class AllPostsFragment:Fragment() {
 
     private fun getPostData() {
         dbref = FirebaseDatabase.getInstance().getReference("Posts")
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        val uid = user?.uid
 
-//        val posts : Query = dbref.orderByChild("userID").whereNotEqualTo("UserID",)
-//        pass uerID and check the userID before this query
+     //   val posts : Query = dbref.orderByChild("userID").whereNotEqualTo(uid),false)
 
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

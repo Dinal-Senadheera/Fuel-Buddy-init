@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +25,7 @@ class RequestFragment:Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var requestArrayList: ArrayList<Request>
     private lateinit var recyclerView: RecyclerView
+    private lateinit var emptyView: TextView
     private var uid:String ?= null
 
 
@@ -40,6 +42,7 @@ class RequestFragment:Fragment() {
 
         val view = inflater.inflate(R.layout.requests_fragment, container, false)
 
+        emptyView = view.findViewById(R.id.requestEmptyView)
         recyclerView = view.findViewById(R.id.requestList)
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.setHasFixedSize(true)
@@ -86,6 +89,13 @@ class RequestFragment:Fragment() {
                         }
                     })
                     recyclerView.adapter = adapter
+                    if(requestArrayList.isEmpty()) {
+                        recyclerView.visibility = View.GONE
+                        emptyView.visibility = View.VISIBLE
+                    } else {
+                        recyclerView.visibility = View.VISIBLE
+                        emptyView.visibility = View.GONE
+                    }
                 }
             }
 
