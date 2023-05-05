@@ -1,12 +1,16 @@
 package com.example.fuelbuddy
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import java.lang.Boolean.TRUE
 
 class AddFuel : AppCompatActivity() {
     //initialize
@@ -17,6 +21,8 @@ class AddFuel : AppCompatActivity() {
     private lateinit var userName: TextView
     private lateinit var auth : FirebaseAuth
     private var name:String ?= null
+//    var ftype1 = "Petrol".trim()
+//    var ftype2 = "Diesel".trim()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,15 +47,42 @@ class AddFuel : AppCompatActivity() {
         //display current user name
         userName.text = "$name"
 
+
         submit.setOnClickListener{
+            val fType = fuelType.text.toString().trim()
+            val fqty =  quantity.text.toString()
+            val fprofit = profit.text.toString()
 
             //launch new activity
             val intent = Intent(this, ConfirmPost::class.java)
 
-            //add extra details(fuel type , quantity , profit) to intent
-            intent.putExtra("Type", fuelType.text.toString())
-            intent.putExtra("Qty" , quantity.text.toString().toInt())
-            intent.putExtra("UnitProfit" , profit.text.toString().toInt())
+
+            //validate and add extra details(fuel type , quantity , profit) to intent
+            if(fType.isEmpty()){
+                Toast.makeText(this, "Please input fuel Type", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+//            }else if(!(fType.compareTo(ftype1).equals(TRUE) || fType.compareTo(ftype2).equals(TRUE))){
+//                Toast.makeText(this, "Fuel Type is invalid", Toast.LENGTH_SHORT).show()
+//                Log.d(TAG,(fType.compareTo(ftype1).equals(TRUE)).toString())
+//                return@setOnClickListener
+            }else{
+                intent.putExtra("Type", fType)
+            }
+
+            if(fqty.isEmpty()){
+                Toast.makeText(this, "Please input quantity", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else {
+                intent.putExtra("Qty", fqty.toInt())
+            }
+
+            if(fprofit.isEmpty()){
+                Toast.makeText(this, "Please input unit profit", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else {
+                intent.putExtra("UnitProfit" , fprofit.toInt())
+            }
+
 //            Log.d(TAG, fuelType.toString())
 //            Log.d(TAG, quantity.toString())
 //            Log.d(TAG, profit.toString())
@@ -57,6 +90,5 @@ class AddFuel : AppCompatActivity() {
             //
             startActivity(intent)
         }
-    //intent.put extra(key values)
     }
 }

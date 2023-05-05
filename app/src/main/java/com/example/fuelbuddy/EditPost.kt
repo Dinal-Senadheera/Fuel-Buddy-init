@@ -96,15 +96,15 @@ class EditPost : AppCompatActivity() {
         database.child(post).removeValue()
 
 
-                //call addOnSuccessListener if post deleted successfully
+            //call addOnSuccessListener if post deleted successfully
             .addOnSuccessListener {
                 Toast.makeText(this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this , MainActivity::class.java)
                 finish()
                 startActivity(intent)
-        }.addOnFailureListener {    //call addOnFailureListener if post deletion failed
-            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
-        }
+            }.addOnFailureListener {    //call addOnFailureListener if post deletion failed
+                Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+            }
     }
 
     private fun editPost() {
@@ -124,12 +124,12 @@ class EditPost : AppCompatActivity() {
             .addOnCompleteListener{//call addOnSuccessListener if post updated successfully
                 //display short time notification in this activity
                 //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
-            Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this , MainActivity::class.java)
-            startActivity(intent)
-        }.addOnFailureListener {//call addOnFailureListener if post deletion failed
-            Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
-        }
+                Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this , MainActivity::class.java)
+                startActivity(intent)
+            }.addOnFailureListener {//call addOnFailureListener if post deletion failed
+                Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
+            }
 
 
     }
