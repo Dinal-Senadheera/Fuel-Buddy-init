@@ -1,17 +1,15 @@
 package com.example.fuelbuddy
 
-import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.fuelbuddy.databinding.ActivityConfirmPostBinding
+import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -25,7 +23,7 @@ class EditPost : AppCompatActivity() {
     private lateinit var qty : EditText
     private lateinit var uPrice : EditText
     private lateinit var btnUpdate : Button
-    //private lateinit var btnDelete : Button
+    private lateinit var btnDelete : Button
     private lateinit var userName: TextView
     var Type : String ?= null
     var Qty : Int ?= null
@@ -53,7 +51,7 @@ class EditPost : AppCompatActivity() {
         qty = findViewById(R.id.qtyInput)
         uPrice= findViewById(R.id.edt_unitPrice)
         btnUpdate= findViewById(R.id.btnSubmit)
-        //val delete: Button = findViewById(R.id.btn_delete)
+        btnDelete= findViewById(R.id.btn_delete)
 
         val bundle: Bundle? = intent.extras
         Type = bundle?.getString("Type")
@@ -66,40 +64,48 @@ class EditPost : AppCompatActivity() {
         qty.setText(Qty.toString())
         uPrice.setText((UnitProfit.toString()))
 
-//        Log.d(TAG,price.text.toString())
 
+        btnUpdate.setOnClickListener {
+            editPost()
+        }
 
-        btnUpdate.setOnClickListener{
-//            updatePosts()
-
-            var intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+        btnDelete.setOnClickListener {
+            deletePost()
         }
 
 
     }
 
-    private fun updatePosts() {
+    private fun deletePost() {
+        val post = postID.toString()
+
+        database.child(post).removeValue().addOnSuccessListener {
+            Toast.makeText(this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , MainActivity::class.java)
+            finish()
+            startActivity(intent)
+        }.addOnFailureListener {
+            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun editPost() {
+        val post = postID.toString()
+        val uID: String = auth.currentUser?.uid.toString()
         val editType = fuelType.text.toString()
-        val editQty = qty.text.toString()
-        val editProfit = uPrice.text.toString()
+        val editQty = qty.text.toString().toInt()
+        val editProfit = uPrice.text.toString().toInt()
 
-        val updatedPost = mapOf<String , String>(
-            "type" to editType,
-            "qty" to editQty,
-            "unitProfit" to editProfit,
-        )
-        //"database-key
+        val postDet = Posted(uID , editType ,editQty , editProfit)
+        Log.d(TAG,postDet.toString())
 
-        database.child(postID.toString()).updateChildren(updatedPost)
-            .addOnSuccessListener {
-                Toast.makeText(this,"Post Updated Successfully",Toast.LENGTH_LONG).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(this,"failed to update post",Toast.LENGTH_LONG).show()
-            }
-
-
+        database.child(post).setValue(postDet).addOnCompleteListener{
+            Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , MainActivity::class.java)
+            startActivity(intent)
+        }.addOnFailureListener {
+            Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
+        }
 
 
     }
