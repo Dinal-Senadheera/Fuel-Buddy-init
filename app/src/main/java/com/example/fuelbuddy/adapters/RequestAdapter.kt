@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.Request
-import com.example.fuelbuddy.dataClasses.vehicleList
 
 class RequestAdapter(private val requestList: ArrayList<Request>) : RecyclerView.Adapter<RequestAdapter.ViewHolder>() {
 
@@ -48,7 +47,7 @@ class RequestAdapter(private val requestList: ArrayList<Request>) : RecyclerView
         val currentRequest = requestList[position]
 
         holder.name.text = currentRequest.Name
-        holder.qty.text = currentRequest.Qty.toString()
+        holder.qty.text = currentRequest.Qty.toString().plus("L")
     }
 
 
