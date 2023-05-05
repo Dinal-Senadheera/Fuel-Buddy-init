@@ -8,26 +8,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.vehicleList
 
-class vehicleAdapter(private val vehicleList : ArrayList<vehicleList>) :
-    RecyclerView.Adapter<vehicleAdapter.vehicleViewHolder>() {
+class vehicleAdapter(private val vehicleList : ArrayList<vehicleList>) : RecyclerView.Adapter<vehicleAdapter.vehicleViewHolder>() {
+
     private lateinit var vehiLis :onItemClickListener
 
     interface onItemClickListener{
         fun onItemClick(position: Int)
     }
 
+    fun setOnItemClickListener(listener:onItemClickListener) {
+
+        vehiLis = listener
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): vehicleViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.vehicle_items, parent, false)
-        return vehicleViewHolder(view)
+        return vehicleViewHolder(view,vehiLis)
     }
 
-    fun setOnItemClickListener(listener:onItemClickListener) {
 
-        vehiLis = listener
-    }
     override fun getItemCount(): Int {
         return vehicleList.size
     }
@@ -41,9 +42,15 @@ class vehicleAdapter(private val vehicleList : ArrayList<vehicleList>) :
 
     }
 
-    class vehicleViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    class vehicleViewHolder(view: View,listener: onItemClickListener) : RecyclerView.ViewHolder(view){
         val vehicleName : TextView = view.findViewById(R.id.vehiName)
         val vehicleNumber : TextView = view.findViewById(R.id.vehicleNumber)
+
+        init{
+            view.setOnClickListener {
+                listener.onItemClick(bindingAdapterPosition)
+            }
+        }
 
     }
 }
