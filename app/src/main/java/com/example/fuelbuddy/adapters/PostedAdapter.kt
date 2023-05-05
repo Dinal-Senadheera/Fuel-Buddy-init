@@ -45,8 +45,9 @@ class PostedAdapter(private val postList: java.util.ArrayList<Posted>) : Recycle
 //        holder.cbTodo.text = data[position].item
         val currentPost = postList[position]
         holder.fuelType.text = currentPost.Type
-        holder.qty.text = currentPost.Qty.toString()
-        holder.unitProfit.text = currentPost.UnitProfit.toString()
+        holder.qty.text = currentPost.Qty.toString().plus("L")
+        val formattedPrice = String.format("%.2f",currentPost.UnitProfit?.toDouble())
+        holder.unitProfit.text = formattedPrice
     }
 
     override fun getItemCount() = postList.size

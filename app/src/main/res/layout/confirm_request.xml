@@ -8,6 +8,108 @@
     android:backgroundTint="@color/background"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/headerBackground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/header_height2"
+        android:background="@drawable/header_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/container7"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/container_height"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/details_rectangle"
+        android:drawableBottom="@drawable/details_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Unit Profit:"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/edtReqQTY"
+        app:layout_constraintTop_toTopOf="@+id/edtReqQTY"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/edtReqUnitProfit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="50"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toTopOf="@+id/textView15"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/edtReqQTY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toTopOf="@+id/textView16"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:text="Quantity:"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/container7"
+        app:layout_constraintTop_toBottomOf="@+id/totProfit3"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/totProfit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:text="Fuel Type: "
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/container7"
+        app:layout_constraintTop_toTopOf="@+id/container7"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/edtReqType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Petrol"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text"
+        app:layout_constraintEnd_toEndOf="@+id/container7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/totProfit3"
+        app:layout_constraintTop_toTopOf="@+id/totProfit3"
+        tools:ignore="HardcodedText" />
+
     <Button
         android:id="@+id/edtDecline"
         android:layout_width="@dimen/button_width"
@@ -30,7 +132,7 @@
         android:id="@+id/edtConfirm"
         android:layout_width="@dimen/button_width"
         android:layout_height="@dimen/button_height"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/primary"
         android:text="@string/accept"
         android:textColor="@color/black"
@@ -43,24 +145,15 @@
     <TextView
         android:id="@+id/container4"
         android:layout_width="0dp"
-        android:layout_height="290dp"
+        android:layout_height="270dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/details_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerBackground" />
-
-    <TextView
-        android:id="@+id/headerBackground"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/header_height2"
-        android:background="@drawable/header_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/container7" />
 
     <TextView
         android:id="@+id/Username"
@@ -95,12 +188,12 @@
         android:id="@+id/edtPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="148dp"
+        android:layout_marginStart="8dp"
         android:text="Bernard"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"
         app:layout_constraintEnd_toEndOf="@+id/container4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="@+id/name"
         tools:ignore="HardcodedText" />
@@ -121,8 +214,7 @@
         android:id="@+id/edtQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginStart="8dp"
         android:text="10"
         android:textColor="@color/black"
         android:textSize="@dimen/large_text"

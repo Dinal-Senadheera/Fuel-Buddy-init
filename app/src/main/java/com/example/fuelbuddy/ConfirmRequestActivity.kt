@@ -13,6 +13,9 @@ import com.google.firebase.database.*
 import java.lang.Integer.parseInt
 
 class ConfirmRequestActivity : AppCompatActivity() {
+    private var postedType:String ?= null
+    private var postedQty:String ?= null
+    private var postedProfit:String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +28,9 @@ class ConfirmRequestActivity : AppCompatActivity() {
         val descriptionRequest:TextView = findViewById(R.id.edtDescription)
         val confirmBtn:Button = findViewById(R.id.edtConfirm)
         val declineButton:Button = findViewById(R.id.edtDecline)
+        val postType:TextView = findViewById(R.id.edtReqType)
+        val postQty:TextView = findViewById(R.id.edtReqQTY)
+        val postUnitProfit:TextView = findViewById(R.id.edtReqUnitProfit)
 
 
         val bundle:Bundle ?= intent.extras
@@ -33,10 +39,25 @@ class ConfirmRequestActivity : AppCompatActivity() {
         val des = bundle?.getString("Description")
         val postID = bundle?.getString("PostID")
         val reqID = bundle?.getString("ReqID")
+        dbrefPosts.child(postID!!).child("type").get().addOnSuccessListener {
+            postedType = it.value.toString()
+            postType.text = postedType
+        }
+        dbrefPosts.child(postID).child("qty").get().addOnSuccessListener {
+            postedQty = it.value.toString()
+            postQty.text = postedQty.plus("L")
+
+        }
+        dbrefPosts.child(postID).child("unitProfit").get().addOnSuccessListener {
+            val formattedPrice = String.format("%.2f",it.value.toString().toDouble())
+            postedProfit = formattedPrice
+            postUnitProfit.text = postedProfit
+
+        }
 
 
         nameRequest.text = name
-        qtyRequest.text = qty.toString()
+        qtyRequest.text = qty.toString().plus("L")
         if (des?.length != 0) {
             descriptionRequest.text = des
         } else {
@@ -44,8 +65,9 @@ class ConfirmRequestActivity : AppCompatActivity() {
         }
 
 
+
         confirmBtn.setOnClickListener {
-            dbrefPosts.child(postID!!).child("qty").get().addOnSuccessListener {
+            dbrefPosts.child(postID).child("qty").get().addOnSuccessListener {
                 if(parseInt(it.value.toString()) - qty!! <= 0) {
                     val builder = AlertDialog.Builder(this)
                     val message = "Do you want to Allocate the remaining Quantity(${it.value.toString()}L) to this user?"
