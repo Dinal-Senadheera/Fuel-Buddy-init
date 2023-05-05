@@ -13,6 +13,7 @@ import com.example.fuelbuddy.dataClasses.Posted
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.lang.Boolean
 
 class EditPost : AppCompatActivity() {
 
@@ -25,6 +26,7 @@ class EditPost : AppCompatActivity() {
     private lateinit var btnUpdate : Button
     private lateinit var btnDelete : Button
     private lateinit var userName: TextView
+    var isAllFieldsChecked = false
 
     //declare variables and initialize to null
     var Type : String ?= null
@@ -96,41 +98,91 @@ class EditPost : AppCompatActivity() {
         database.child(post).removeValue()
 
 
-            //call addOnSuccessListener if post deleted successfully
+                //call addOnSuccessListener if post deleted successfully
             .addOnSuccessListener {
                 Toast.makeText(this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this , MainActivity::class.java)
                 finish()
                 startActivity(intent)
-            }.addOnFailureListener {    //call addOnFailureListener if post deletion failed
-                Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
-            }
+        }.addOnFailureListener {    //call addOnFailureListener if post deletion failed
+            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun editPost() {
         val post = postID.toString()        //assign post ID to post variable
         val uID: String = auth.currentUser?.uid.toString()  //get current user's userID
-        val editType = fuelType.text.toString()
-        val editQty = qty.text.toString().toInt()
-        val editProfit = uPrice.text.toString().toInt()
+        val editType : String ?= null
+        val editQty : Int ?= null
+        val editProfit : Int ?= null
+        val ftype1 = "Petrol".trim()
+        val ftype2 = "Diesel".trim()
 
-        //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
-        val postDet = Posted(uID , editType ,editQty , editProfit)
-        Log.d(TAG,postDet.toString())
+//        isAllFieldsChecked = CheckAllFields().booleanValue()
 
+        if(fuelType.text.toString().isEmpty()){
+            Toast.makeText(this, "Please input fuel Type", Toast.LENGTH_SHORT).show()
+//        }else if(!(fuelType.text.toString().compareTo(ftype1).equals(Boolean.TRUE) || fuelType.text.toString().compareTo(ftype2).equals(Boolean.TRUE))){
+//            Toast.makeText(this, "Fuel Type is invalid", Toast.LENGTH_SHORT).show()
+        }else{
+            val editType = fuelType.text.toString()
+        }
 
-        //write data to the selected post in firebase realtime database
-        database.child(post).setValue(postDet)
-            .addOnCompleteListener{//call addOnSuccessListener if post updated successfully
-                //display short time notification in this activity
-                //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
-                Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this , MainActivity::class.java)
-                startActivity(intent)
-            }.addOnFailureListener {//call addOnFailureListener if post deletion failed
-                Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
+        if(qty.text.toString().isEmpty()){
+            Toast.makeText(this, "Please input quantity", Toast.LENGTH_SHORT).show()
+        }else {
+            val editQty = qty.text.toString().toInt()
+        }
+
+        if(uPrice.text.toString().isEmpty()){
+            Toast.makeText(this, "Please input unit profit", Toast.LENGTH_SHORT).show()
+        }else {
+            val editProfit = uPrice.text.toString().toInt()
+        }
+
+        if(isAllFieldsChecked) {
+            //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
+            val postDet = Posted(uID, editType , editQty , editProfit)
+            Log.d(TAG, postDet.toString())
+
+            //write data to the selected post in firebase realtime database
+            database.child(post).setValue(postDet)
+                .addOnCompleteListener{//call addOnSuccessListener if post updated successfully
+                    //display short time notification in this activity
+                    //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
+                    Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this , MainActivity::class.java)
+                    startActivity(intent)
+                }.addOnFailureListener {//call addOnFailureListener if post deletion failed
+                    Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
             }
 
 
     }
+
+}
+
+//private fun CheckAllFields():Boolean {
+//    var ftype1 : String = "Petrol"
+//    var ftype2 : String = "Diesel"
+//
+//    if(fuelType.text.isEmpty()){
+//        Toast.makeText(this, "Please input fuel Type", Toast.LENGTH_SHORT).show()
+//    }else if(!((fuelType.text)compareTo(ftype1).equals(Boolean.TRUE) || fuelType.text.compareTo(ftype2).equals(Boolean.TRUE))){
+//        Toast.makeText(this, "Fuel Type is invalid", Toast.LENGTH_SHORT).show()
+//    }else{
+//        ftype=editType.toString()
+//    }
+//
+//    if(editQty.isEmpty()){
+//        Toast.makeText(this, "Please input quantity", Toast.LENGTH_SHORT).show()
+//    }else {
+//        fqty=editQty.toInt()
+//    }
+//
+//    if(editProfit.isEmpty()){
+//        Toast.makeText(this, "Please input unit profit", Toast.LENGTH_SHORT).show()
+//    }else {
+//        fprofit=editProfit.toInt()
+//    }
 }
