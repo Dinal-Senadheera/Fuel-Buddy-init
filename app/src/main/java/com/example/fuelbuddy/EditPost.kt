@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class EditPost : AppCompatActivity() {
 
-
+    //initialization
     private lateinit var auth : FirebaseAuth
     private lateinit var database : DatabaseReference
     private lateinit var fuelType : EditText
@@ -25,6 +25,8 @@ class EditPost : AppCompatActivity() {
     private lateinit var btnUpdate : Button
     private lateinit var btnDelete : Button
     private lateinit var userName: TextView
+
+    //declare variables and initialize to null
     var Type : String ?= null
     var Qty : Int ?= null
     var UnitProfit : Int ?= null
@@ -36,40 +38,51 @@ class EditPost : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.update_delete)
 
+        //obtain an instance of posted class
         auth = FirebaseAuth.getInstance()
+        //call current user to get firebase object
         val user = auth.currentUser
 
+        //check if user is not null
         user?.let {
-            name = it.displayName
+            name = it.displayName   //assign display name to name variable
         }
 
+        //obtain reference to Posts node of firebase realtime database
         database = FirebaseDatabase.getInstance().getReference("Posts")
         userName = findViewById(R.id.userName)
+        //display current user name
         userName.text = "$name"
 
+        //reference to UI components
         fuelType = findViewById(R.id.fuelType)
         qty = findViewById(R.id.qtyInput)
         uPrice= findViewById(R.id.edt_unitPrice)
         btnUpdate= findViewById(R.id.btnSubmit)
         btnDelete= findViewById(R.id.btn_delete)
 
+        //access fuel type , quantity , unitprofit passed along with intent and initialize
         val bundle: Bundle? = intent.extras
         Type = bundle?.getString("Type")
         Qty = bundle?.getInt("Qty")
         UnitProfit = bundle?.getInt("UnitPrice")
         postID = bundle?.getString("PostID")
 
-
+        //set the text of EditText
         fuelType.setText(Type.toString())
         qty.setText(Qty.toString())
         uPrice.setText((UnitProfit.toString()))
 
 
+        //update posts
         btnUpdate.setOnClickListener {
+            //calling editPost function
             editPost()
         }
 
+        //delete posts
         btnDelete.setOnClickListener {
+            //calling deletePost function
             deletePost()
         }
 
@@ -77,33 +90,44 @@ class EditPost : AppCompatActivity() {
     }
 
     private fun deletePost() {
-        val post = postID.toString()
+        val post = postID.toString()       //assign post ID to post variable
 
-        database.child(post).removeValue().addOnSuccessListener {
-            Toast.makeText(this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this , MainActivity::class.java)
-            finish()
-            startActivity(intent)
-        }.addOnFailureListener {
+        //remove post from firebase realtime database
+        database.child(post).removeValue()
+
+
+                //call addOnSuccessListener if post deleted successfully
+            .addOnSuccessListener {
+                Toast.makeText(this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this , MainActivity::class.java)
+                finish()
+                startActivity(intent)
+        }.addOnFailureListener {    //call addOnFailureListener if post deletion failed
             Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
         }
     }
 
     private fun editPost() {
-        val post = postID.toString()
-        val uID: String = auth.currentUser?.uid.toString()
+        val post = postID.toString()        //assign post ID to post variable
+        val uID: String = auth.currentUser?.uid.toString()  //get current user's userID
         val editType = fuelType.text.toString()
         val editQty = qty.text.toString().toInt()
         val editProfit = uPrice.text.toString().toInt()
 
+        //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
         val postDet = Posted(uID , editType ,editQty , editProfit)
         Log.d(TAG,postDet.toString())
 
-        database.child(post).setValue(postDet).addOnCompleteListener{
+
+        //write data to the selected post in firebase realtime database
+        database.child(post).setValue(postDet)
+            .addOnCompleteListener{//call addOnSuccessListener if post updated successfully
+                //display short time notification in this activity
+                //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
             Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
             val intent = Intent(this , MainActivity::class.java)
             startActivity(intent)
-        }.addOnFailureListener {
+        }.addOnFailureListener {//call addOnFailureListener if post deletion failed
             Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
         }
 
