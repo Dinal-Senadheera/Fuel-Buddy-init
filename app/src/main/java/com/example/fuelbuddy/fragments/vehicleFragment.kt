@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fuelbuddy.*
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.vehicleAdapter
-import com.example.fuelbuddy.dataClasses.Request
 import com.example.fuelbuddy.dataClasses.vehicleList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -81,7 +79,19 @@ class vehicleFragment:Fragment() {
                     }
 
                     val adapter = vehicleAdapter(vehicleArrayList)
-
+                    adapter.setOnItemClickListener(object: vehicleAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+//                            Log.d(TAG, position.toString())
+                            val intent = Intent(activity, CreateRequest::class.java)
+                            intent.putExtra("postUserID",vehicleArrayList[position].userID)
+                            intent.putExtra("vehinum",vehicleArrayList[position].vehinum)
+                            intent.putExtra("vehinum",vehicleArrayList[position].vehinum)
+                            intent.putExtra("vehiType",vehicleArrayList[position].vehiType)
+                            intent.putExtra("chassisNumber",vehicleArrayList[position].chassisNumber)
+                            intent.putExtra("puleType",vehicleArrayList[position].puleType)
+                            startActivity(intent)
+                        }
+                    })
                     vehicleRecycleView.adapter = adapter
                 }
             }

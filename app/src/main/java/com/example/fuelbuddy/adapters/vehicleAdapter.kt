@@ -10,6 +10,11 @@ import com.example.fuelbuddy.dataClasses.vehicleList
 
 class vehicleAdapter(private val vehicleList : ArrayList<vehicleList>) :
     RecyclerView.Adapter<vehicleAdapter.vehicleViewHolder>() {
+    private lateinit var vehiLis :onItemClickListener
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
 
 
 
@@ -19,6 +24,10 @@ class vehicleAdapter(private val vehicleList : ArrayList<vehicleList>) :
         return vehicleViewHolder(view)
     }
 
+    fun setOnItemClickListener(listener:onItemClickListener) {
+
+        vehiLis = listener
+    }
     override fun getItemCount(): Int {
         return vehicleList.size
     }

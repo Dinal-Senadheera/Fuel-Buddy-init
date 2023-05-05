@@ -11,7 +11,8 @@ import com.example.fuelbuddy.dataClasses.Posted
 import com.example.fuelbuddy.R
 import com.google.firebase.auth.FirebaseAuth
 
-class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) : RecyclerView.Adapter<AllPostAdapter.ViewHolder>() {
+class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) :
+    RecyclerView.Adapter<AllPostAdapter.ViewHolder>() {
     private lateinit var mListener: onItemClickListener
     interface onItemClickListener{
         fun onItemClick(position: Int)
@@ -27,6 +28,7 @@ class AllPostAdapter(private val newPostList: java.util.ArrayList<Posted>) : Rec
         Log.d(TAG,newPostList.toString())
         return ViewHolder(post,mListener)
     }
+
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentPost = newPostList[position]
