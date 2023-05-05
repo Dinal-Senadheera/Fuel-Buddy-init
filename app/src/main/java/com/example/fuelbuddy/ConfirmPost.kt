@@ -61,7 +61,7 @@ class ConfirmPost : AppCompatActivity() {
         var profit = Qty!! * UnitProfit!!
         val calculation = Calculations(profit , 99 , 100)
         var formattedProfit = String.format("%.2f" , calculation.doubleMultiplication())
-        totalProfit.text = "Rs".plus(formattedProfit)
+        totalProfit.text = "Rs ".plus(formattedProfit)
 //        Log.d(TAG, totalProfit.text.toString())
 
         confirm.setOnClickListener{
