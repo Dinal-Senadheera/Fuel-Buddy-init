@@ -85,10 +85,10 @@ class vehicleFragment:Fragment() {
                             val intent = Intent(activity,vehicleEdit::class.java)
                             intent.putExtra("postUserID",vehicleArrayList[position].userID)
                             intent.putExtra("vehinum",vehicleArrayList[position].vehinum)
-                            intent.putExtra("vehinum",vehicleArrayList[position].vehinum)
                             intent.putExtra("vehiType",vehicleArrayList[position].vehiType)
                             intent.putExtra("chassisNumber",vehicleArrayList[position].chassisNumber)
                             intent.putExtra("puleType",vehicleArrayList[position].puleType)
+                            intent.putExtra("vehicleID",keyList[position])
                             startActivity(intent)
                         }
                     })

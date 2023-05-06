@@ -91,6 +91,8 @@ class EditPost : AppCompatActivity() {
 
     }
 
+
+
     private fun deletePost() {
         val post = postID.toString()       //assign post ID to post variable
 

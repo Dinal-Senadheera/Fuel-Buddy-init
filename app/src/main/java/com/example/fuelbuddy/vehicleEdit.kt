@@ -1,15 +1,19 @@
 package com.example.fuelbuddy
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.example.fuelbuddy.dataClasses.Posted
 import com.example.fuelbuddy.dataClasses.vehicleList
+import com.example.fuelbuddy.fragments.vehicleFragment
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -32,7 +36,7 @@ class vehicleEdit : AppCompatActivity() {
     var vehiType : String ?= null
     var chassisNumber : String ?= null
     var puleType :String ? = null
-    var postID : String ?= null
+    var vehicleID : String ?= null
     private var name:String ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -64,7 +68,7 @@ class vehicleEdit : AppCompatActivity() {
         vehiType = bundle?.getString("vehiType")
         chassisNumber = bundle?.getString("chassisNumber")
         puleType = bundle?.getString("puleType")
-        postID = bundle?.getString("PostID")
+        vehicleID = bundle?.getString("vehicleID")
 
         vehicleNumber.editText?.setText(vehinum.toString())
         VehicleType.editText?.setText(vehiType.toString())
@@ -78,18 +82,52 @@ class vehicleEdit : AppCompatActivity() {
             updateVehicle()
         }
 
+        btn_vehi_delete.setOnClickListener {
+            //calling deletePost function
+            deleteVehicle()
+        }
+
+    }
+
+    private fun deleteVehicle() {
+        val post = vehicleID.toString()       //assign post ID to post variable
+
+        //remove post from firebase realtime database
+        database.child(post).removeValue()
+
+
+            //call addOnSuccessListener if vehicle deleted successfully
+            .addOnSuccessListener {
+                Toast.makeText(this, "Vehicle Deleted Successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this , MainActivity::class.java)
+                finish()
+                startActivity(intent)
+            }.addOnFailureListener {    //call addOnFailureListener if vehicle deletion failed
+                Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+            }
     }
 
     private fun updateVehicle() {
-        val post = postID.toString()
+        val post = vehicleID.toString()
         val uID: String = auth.currentUser?.uid.toString()
         val vNumber = vehicleNumber.editText?.text.toString()
         val vType = VehicleType.editText?.text.toString()
         val cNumber = chassis_Number.editText?.text.toString()
         val pType = pule_Type.editText?.text.toString()
 
-        val postDet = vehicleList(uID , vNumber ,vType , cNumber,pType)
-        Log.d(ContentValues.TAG,postDet.toString())
+        val vehidata = vehicleList(uID , vNumber ,vType , cNumber,pType)
+        Log.d(TAG,vehidata.toString())
+
+        database.child(post).setValue(vehidata)
+            .addOnCompleteListener{//call addOnSuccessListener if vehicle updated successfully
+                //display short time notification in this activity
+                //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
+                Toast.makeText(this, "Vehicle Updated Successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this , MainActivity::class.java)
+                startActivity(intent)
+            }.addOnFailureListener {//call addOnFailureListener if post deletion failed
+                Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
+            }
 
 
 
