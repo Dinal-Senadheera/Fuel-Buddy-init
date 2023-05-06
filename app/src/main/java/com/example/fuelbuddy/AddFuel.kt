@@ -49,7 +49,7 @@ class AddFuel : AppCompatActivity() {
 
 
         submit.setOnClickListener{
-            val fType = fuelType.text.toString().lowercase()
+            val fType = fuelType.text.toString()
             val fqty =  quantity.text.toString()
             val fprofit = profit.text.toString()
 
@@ -61,7 +61,7 @@ class AddFuel : AppCompatActivity() {
             if(fType.isEmpty()){
                 Toast.makeText(this, "Please input fuel Type", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-            }else if(!(fType == ftype1 || fType==ftype2)){
+            }else if(!(fType.lowercase() == ftype1 || fType.lowercase()==ftype2)){
                 Toast.makeText(this, "Fuel Type is invalid", Toast.LENGTH_SHORT).show()
                 Log.d(TAG,(fType.compareTo(ftype1)).toString())
                 return@setOnClickListener

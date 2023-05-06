@@ -9,12 +9,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
 import com.example.fuelbuddy.MainActivity
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.Posted
+import com.example.fuelbuddy.fragments.PostedFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.lang.Boolean.FALSE
+import java.lang.Boolean.TRUE
 
 class EditPost : AppCompatActivity() {
 
@@ -114,27 +118,50 @@ class EditPost : AppCompatActivity() {
     private fun editPost() {
         val post = postID.toString()        //assign post ID to post variable
         val uID: String = auth.currentUser?.uid.toString()  //get current user's userID
-        val editType = fuelType.text.toString()
-        val editQty = qty.text.toString().toInt()
-        val editProfit = uPrice.text.toString().toInt()
+        var count = 0
+        var ftype1 = "petrol"
+        var ftype2 = "diesel"
 
-        //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
-        val postDet = Posted(uID , editType ,editQty , editProfit)
-        Log.d(TAG,postDet.toString())
+        if(fuelType.text.toString().lowercase().isEmpty()) {
+            Toast.makeText(this, "Please input fuelType", Toast.LENGTH_SHORT).show()
+            count++
+        }else if (!(fuelType.text.toString().lowercase() == ftype1 || fuelType.text.toString().lowercase()==ftype2)) {
+            Toast.makeText(this, "Fuel Type is invalid", Toast.LENGTH_SHORT).show()
+            count++
+        }
+        if (qty.text.toString().isEmpty()) {
+            Toast.makeText(this, "Please input quantity", Toast.LENGTH_SHORT).show()
+            count++
+        }
+        if (uPrice.text.toString().isEmpty()){
+            Toast.makeText(this, "Please input unit profit", Toast.LENGTH_SHORT).show()
+            count++
+        }
+
+        if(count == 0){
+            val editType = fuelType.text.toString()
+            val editQty = qty.text.toString().toInt()
+            val editProfit = uPrice.text.toString().toInt()
+            //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
+            val postDet = Posted(uID, editType, editQty, editProfit)
+            Log.d(TAG, postDet.toString())
 
 
-        //write data to the selected post in firebase realtime database
-        database.child(post).setValue(postDet)
-            .addOnCompleteListener{//call addOnSuccessListener if post updated successfully
-                //display short time notification in this activity
-                //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
-                Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this , MainActivity::class.java)
-                startActivity(intent)
-            }.addOnFailureListener {//call addOnFailureListener if post deletion failed
-                Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
-            }
-
+            //write data to the selected post in firebase realtime database
+            database.child(post).setValue(postDet)
+                .addOnCompleteListener {//call addOnSuccessListener if post updated successfully
+                    //display short time notification in this activity
+                    //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
+                    Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }.addOnFailureListener {//call addOnFailureListener if post deletion failed
+                    Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+                }
+        }else{
+            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+        }
 
     }
+
 }
