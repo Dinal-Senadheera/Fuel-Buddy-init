@@ -82,7 +82,7 @@ class vehicleFragment:Fragment() {
                     adapter.setOnItemClickListener(object: vehicleAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 //                            Log.d(TAG, position.toString())
-                            val intent = Intent(activity, CreateRequest::class.java)
+                            val intent = Intent(activity,vehicleEdit::class.java)
                             intent.putExtra("postUserID",vehicleArrayList[position].userID)
                             intent.putExtra("vehinum",vehicleArrayList[position].vehinum)
                             intent.putExtra("vehinum",vehicleArrayList[position].vehinum)
