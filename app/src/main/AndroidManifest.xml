@@ -49,10 +49,10 @@
             android:name=".ConfirmPost"
             android:exported="false" />
         <activity
-            android:name=".EditPost"
+            android:name=".Account"
             android:exported="false" />
         <activity
-            android:name=".Account"
+            android:name=".EditPost"
             android:exported="false" />
 
         <meta-data

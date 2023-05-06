@@ -1,6 +1,5 @@
 package com.example.fuelbuddy.fragments
 
-import EditPost
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fuelbuddy.EditPost
 import com.example.fuelbuddy.Login
 import com.example.fuelbuddy.R
 import com.example.fuelbuddy.adapters.PostedAdapter
