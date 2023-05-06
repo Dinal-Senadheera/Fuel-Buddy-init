@@ -38,9 +38,7 @@ class PostInstumentedTest {
             activity.findViewById<EditText>(R.id.qtyInput).setText("")
             activity.findViewById<EditText>(R.id.edt_unitPrice).setText("")
         }
-
-
-        }
+    }
 
     @Test
     fun testForm(){
