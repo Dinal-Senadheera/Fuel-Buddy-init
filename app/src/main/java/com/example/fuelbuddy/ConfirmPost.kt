@@ -61,11 +61,9 @@ class ConfirmPost : AppCompatActivity() {
 
         //calculate total profit
         val profit = calculateProfit(Qty!! ,UnitProfit!! , 1)
-//        var profit = Qty!! * UnitProfit!!
-//        val calculation = Calculations(profit , 99 , 100)
         var formattedProfit = String.format("%.2f" , profit.totalProfit())
-        Log.d(TAG, profit.calProfit().toString())
-        Log.d(TAG , profit.calCommssion().toString())
+//        Log.d(TAG, profit.calProfit().toString())
+//        Log.d(TAG , profit.calCommssion().toString())
         totalProfit.text = "Rs ".plus(formattedProfit)
 //        Log.d(TAG, totalProfit.text.toString())
 

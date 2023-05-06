@@ -60,7 +60,7 @@ class CreateRequest : AppCompatActivity() {
                         String.format("%.2f", calculation.toDoubleMultiplication())
                     val builder = AlertDialog.Builder(this)
                     val message = "Do you want to send a request to purchase fuel?"
-                    builder.setTitle("Your total will be Rs".plus(formattedTotal))
+                    builder.setTitle("Your total profit will be Rs".plus(formattedTotal))
                     builder.setMessage(message)
                     builder.setPositiveButton("Yes") { _, _ ->
                         val uniqueID: String = UUID.randomUUID().toString()

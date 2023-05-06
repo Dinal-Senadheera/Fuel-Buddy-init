@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
 import com.example.fuelbuddy.MainActivity
 import com.example.fuelbuddy.R
@@ -142,22 +143,36 @@ class EditPost : AppCompatActivity() {
             val editType = fuelType.text.toString()
             val editQty = qty.text.toString().toInt()
             val editProfit = uPrice.text.toString().toInt()
-            //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
-            val postDet = Posted(uID, editType, editQty, editProfit)
-            Log.d(TAG, postDet.toString())
+
+            val profit = calculateProfit(Qty!! ,UnitProfit!! , 1)
+            var formattedProfit = String.format("%.2f" , profit.totalProfit())
+            val builder = AlertDialog.Builder(this)
+            val message = "Do you want to update post?"
+            builder.setTitle("Your total will be Rs".plus(formattedProfit))
+            builder.setMessage(message)
+            builder.setPositiveButton("Yes") { _, _ ->
+                //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
+                val postDet = Posted(uID, editType, editQty, editProfit)
+                Log.d(TAG, postDet.toString())
 
 
-            //write data to the selected post in firebase realtime database
-            database.child(post).setValue(postDet)
-                .addOnCompleteListener {//call addOnSuccessListener if post updated successfully
-                    //display short time notification in this activity
-                    //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
-                    Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                }.addOnFailureListener {//call addOnFailureListener if post deletion failed
-                    Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
-                }
+                //write data to the selected post in firebase realtime database
+                database.child(post).setValue(postDet)
+                    .addOnCompleteListener {//call addOnSuccessListener if post updated successfully
+                        //display short time notification in this activity
+                        //LENGTH_SHORT , LENGTH_LONG ---> display time duration of toast
+                        Toast.makeText(this, "Post Updated Successfully", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    }.addOnFailureListener {//call addOnFailureListener if post deletion failed
+                        Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+                    }}
+            builder.setNegativeButton("Cancel"){_, _ ->
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            val dialog = builder.create()
+            dialog.show()
         }else{
             Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
         }
