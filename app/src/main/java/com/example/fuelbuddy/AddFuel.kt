@@ -21,8 +21,8 @@ class AddFuel : AppCompatActivity() {
     private lateinit var userName: TextView
     private lateinit var auth : FirebaseAuth
     private var name:String ?= null
-//    var ftype1 = "Petrol".trim()
-//    var ftype2 = "Diesel".trim()
+    var ftype1 = "petrol"
+    var ftype2 = "diesel"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class AddFuel : AppCompatActivity() {
 
 
         submit.setOnClickListener{
-            val fType = fuelType.text.toString().trim()
+            val fType = fuelType.text.toString()
             val fqty =  quantity.text.toString()
             val fprofit = profit.text.toString()
 
@@ -61,10 +61,10 @@ class AddFuel : AppCompatActivity() {
             if(fType.isEmpty()){
                 Toast.makeText(this, "Please input fuel Type", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-//            }else if(!(fType.compareTo(ftype1).equals(TRUE) || fType.compareTo(ftype2).equals(TRUE))){
-//                Toast.makeText(this, "Fuel Type is invalid", Toast.LENGTH_SHORT).show()
-//                Log.d(TAG,(fType.compareTo(ftype1).equals(TRUE)).toString())
-//                return@setOnClickListener
+            }else if(!(fType.lowercase() == ftype1 || fType.lowercase()==ftype2)){
+                Toast.makeText(this, "Fuel Type is invalid", Toast.LENGTH_SHORT).show()
+                Log.d(TAG,(fType.compareTo(ftype1)).toString())
+                return@setOnClickListener
             }else{
                 intent.putExtra("Type", fType)
             }
