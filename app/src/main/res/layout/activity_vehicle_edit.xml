@@ -109,7 +109,7 @@
 
         <Button
             android:id="@+id/btn_vehi_update"
-            android:layout_width="304dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="19dp"
@@ -126,7 +126,7 @@
 
         <Button
             android:id="@+id/btn_vehi_delete"
-            android:layout_width="311dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="19dp"
@@ -142,7 +142,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btnSubmit"
             app:layout_constraintTop_toBottomOf="@+id/edt_unitPrice" />
-
 
 
     </LinearLayout>
