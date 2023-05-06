@@ -1,5 +1,6 @@
 package com.example.fuelbuddy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -61,6 +62,7 @@ class activity_add_to_car : AppCompatActivity() {
 
         database.child(uniqueID).setValue(vehicleList).addOnCompleteListener{
             Toast.makeText(this, "vehicle added Successfully", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this , MainActivity::class.java)
         }.addOnFailureListener {
             Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
         }
