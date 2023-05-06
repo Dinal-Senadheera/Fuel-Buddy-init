@@ -1,7 +1,9 @@
 package com.example.fuelbuddy
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -58,9 +60,12 @@ class ConfirmPost : AppCompatActivity() {
 //        Log.d(TAG, unitPrice.text.toString())
 
         //calculate total profit
-        var profit = Qty!! * UnitProfit!!
-        val calculation = Calculations(profit , 99 , 100)
-        var formattedProfit = String.format("%.2f" , calculation.doubleMultiplication())
+        val profit = calculateProfit(Qty!! ,UnitProfit!! , 1)
+//        var profit = Qty!! * UnitProfit!!
+//        val calculation = Calculations(profit , 99 , 100)
+        var formattedProfit = String.format("%.2f" , profit.totalProfit())
+        Log.d(TAG, profit.calProfit().toString())
+        Log.d(TAG , profit.calCommssion().toString())
         totalProfit.text = "Rs ".plus(formattedProfit)
 //        Log.d(TAG, totalProfit.text.toString())
 
