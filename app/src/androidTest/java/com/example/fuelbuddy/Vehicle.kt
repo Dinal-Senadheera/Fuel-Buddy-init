@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -13,7 +14,8 @@ import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import java.util.regex.Pattern.matches
+
+
 
 class Vehicle {
     private lateinit var appContext : Context
@@ -46,7 +48,7 @@ class Vehicle {
     @Test
     fun testForm(){
         onView(withId(R.id.vehiShu)).perform(click())
-        onView(withId(R.id.Add_vehiclesTopic)).check(matches(withText(R.string.Add_vehiclesTopic)))
+        onView(withId(R.id.vehicleTopic)).check(matches(withText(R.string.Add_vehiclesTopic)))
     }
 
 
