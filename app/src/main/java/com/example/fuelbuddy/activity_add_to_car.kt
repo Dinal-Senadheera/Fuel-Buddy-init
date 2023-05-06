@@ -63,6 +63,8 @@ class activity_add_to_car : AppCompatActivity() {
         database.child(uniqueID).setValue(vehicleList).addOnCompleteListener{
             Toast.makeText(this, "vehicle added Successfully", Toast.LENGTH_SHORT).show()
             val intent = Intent(this , MainActivity::class.java)
+            startActivity(intent)
+
         }.addOnFailureListener {
             Toast.makeText(this,"Error" , Toast.LENGTH_LONG).show()
         }
