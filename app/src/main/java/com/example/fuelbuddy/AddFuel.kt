@@ -47,7 +47,7 @@ class AddFuel : AppCompatActivity() {
         //display current user name
         userName.text = "$name"
 
-
+        //perform action when add fuel button is pressed
         submit.setOnClickListener{
             val fType = fuelType.text.toString()
             val fqty =  quantity.text.toString()
