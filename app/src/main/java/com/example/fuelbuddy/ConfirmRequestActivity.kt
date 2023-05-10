@@ -56,10 +56,8 @@ class ConfirmRequestActivity : AppCompatActivity() {
         dbrefPosts.child(postID).child("unitProfit").get().addOnSuccessListener {
             postedProfit = it.value.toString()
             val formattedPrice = String.format("%.2f", postedProfit!!.toDouble())
-            postUnitProfit.text = buildString {
-                append("Rs. ")
-                }.plus(formattedPrice)
-            }
+            postUnitProfit.text = formattedPrice
+        }
 
         // display request data
         nameRequest.text = name
