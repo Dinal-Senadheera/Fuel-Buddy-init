@@ -62,6 +62,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
         // display request data
         nameRequest.text = name
         qtyRequest.text = qty.toString().plus("L")
+        // set custom message if the user did not give a description
         if (des?.length != 0) {
             descriptionRequest.text = des
         } else {
