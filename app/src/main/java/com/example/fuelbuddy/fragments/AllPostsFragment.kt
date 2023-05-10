@@ -22,8 +22,9 @@ import com.google.firebase.database.*
 //import com.google.firebase.firestore.ktx.firestore
 
 class AllPostsFragment:Fragment() {
+    //initialization
     private lateinit var dbref: DatabaseReference
-    private lateinit var newPostList: ArrayList<Posted>
+    private lateinit var newPostList: ArrayList<Posted> //ArrayList that holds objects of Posted class
     private lateinit var postRecyclerView: RecyclerView
     private lateinit var btnAddFuel : ImageView
     private lateinit var auth : FirebaseAuth
@@ -33,18 +34,24 @@ class AllPostsFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
+        //create a view from post xml
         val view = inflater.inflate(R.layout.post, container, false)
+        //use the inflated view to find and interact with child views
         btnAddFuel = view.findViewById(R.id.btn_addFuel)
         postRecyclerView = view.findViewById(R.id.allPosts)
         postRecyclerView.layoutManager = LinearLayoutManager(view.context)
         postRecyclerView.setHasFixedSize(true)
 
+        //perform action when button is clicked
         btnAddFuel.setOnClickListener {
             val intent = Intent(activity, AddFuel::class.java)
             startActivity(intent)
         }
 
+        //create an empty arraylist
         newPostList = arrayListOf()
+        //set AllPost adapter for postRecyclerView and takes an arraylist of 'Posted' objects as parameters
         postRecyclerView.adapter = AllPostAdapter(newPostList)
         getPostData()
 
@@ -52,17 +59,18 @@ class AllPostsFragment:Fragment() {
     }
 
     private fun getPostData() {
+        //call current user to get firebase object
         dbref = FirebaseDatabase.getInstance().getReference("Posts")
+        //obtain an instance of posted class
         auth = FirebaseAuth.getInstance()
+        //call current user to get firebase object
         val user = auth.currentUser
-        val uid = user?.uid
 
-//        val posts : Query = dbref.orderByChild("userID").equalTo(uid)
-
-        dbref.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
+        dbref.addValueEventListener(object : ValueEventListener { //valueEventListener listen changes in post at realtimme databse
+            override fun onDataChange(snapshot: DataSnapshot) { //snapshot is the current state of data
                 if (snapshot.exists()) {
                     newPostList = arrayListOf()
+                    //arraylist with key values
                     val keyList = arrayListOf<String>()
                     for (postSnapshot in snapshot.children) {
                         val post = postSnapshot.getValue(/* valueType = */ Posted::class.java)
@@ -71,6 +79,8 @@ class AllPostsFragment:Fragment() {
                     }
 //                    Log.d(TAG , newPostList.toString())
 
+                    //create an instance of the AllPostAdapter
+                    // setting an item click listener on the adapter and defining the behavior for when a post is clicked
                     val adapter = AllPostAdapter(newPostList)
                     adapter.setOnItemClickListener(object: AllPostAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
@@ -87,6 +97,7 @@ class AllPostsFragment:Fragment() {
                 }
             }
 
+            //call when database operation is canceled
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(context, "$error", Toast.LENGTH_LONG).show()
             }
