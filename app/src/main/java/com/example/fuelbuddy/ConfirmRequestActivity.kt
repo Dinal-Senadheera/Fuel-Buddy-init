@@ -21,8 +21,11 @@ class ConfirmRequestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.confirm_request)
 
+        // initialize database references with correct paths
         val dbrefPosts = FirebaseDatabase.getInstance().getReference("Posts")
         val dbrefReq = FirebaseDatabase.getInstance().getReference("Requests")
+
+        // set widgets
         val nameRequest:TextView = findViewById(R.id.edtPersonName)
         val qtyRequest:TextView = findViewById(R.id.edtQuantity)
         val descriptionRequest:TextView = findViewById(R.id.edtDescription)
@@ -32,13 +35,15 @@ class ConfirmRequestActivity : AppCompatActivity() {
         val postQty:TextView = findViewById(R.id.edtReqQTY)
         val postUnitProfit:TextView = findViewById(R.id.edtReqUnitProfit)
 
-
+        // get the data passed through intents
         val bundle:Bundle ?= intent.extras
         val name = bundle?.getString("Name")
         val qty = bundle?.getInt("Qty")
         val des = bundle?.getString("Description")
         val postID = bundle?.getString("PostID")
         val reqID = bundle?.getString("ReqID")
+
+        // get the type, qty and unitProfit of the post where the request was created for and display
         dbrefPosts.child(postID!!).child("type").get().addOnSuccessListener {
             postedType = it.value.toString()
             postType.text = postedType
@@ -49,29 +54,32 @@ class ConfirmRequestActivity : AppCompatActivity() {
 
         }
         dbrefPosts.child(postID).child("unitProfit").get().addOnSuccessListener {
-            val formattedPrice = String.format("%.2f",it.value.toString().toDouble())
-            postedProfit = formattedPrice
-            postUnitProfit.text = postedProfit
+            postedProfit = it.value.toString()
+            val formattedPrice = String.format("%.2f", postedProfit!!.toDouble())
+            postUnitProfit.text = buildString {
+                append("Rs. ")
+                }.plus(formattedPrice)
+            }
 
-        }
-
-
+        // display request data
         nameRequest.text = name
         qtyRequest.text = qty.toString().plus("L")
         if (des?.length != 0) {
             descriptionRequest.text = des
         } else {
-            descriptionRequest.text = "User did not give a description"
+            "User did not give a description".also { descriptionRequest.text = it }
         }
 
 
-
+        // execute on confirmBtn click
         confirmBtn.setOnClickListener {
             dbrefPosts.child(postID).child("qty").get().addOnSuccessListener {
+                // check if the requested amount satisfies the post
                 if(parseInt(it.value.toString()) - qty!! <= 0) {
                     val builder = AlertDialog.Builder(this)
                     val message = "Do you want to Allocate the remaining Quantity(${it.value.toString()}L) to this user?"
 
+                    // set Title on the requested amount
                     if( parseInt(it.value.toString()) - qty < 0 ) {
                         builder.setTitle("Current Quantity exceeds requested value")
                     } else {
@@ -81,6 +89,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
                     builder.setMessage(message)
                     builder.setPositiveButton("Yes") { _, _ ->
                         Toast.makeText(this, "Request Accepted", Toast.LENGTH_LONG).show()
+                        // remove the entries from the database
                         dbrefReq.child(reqID!!).removeValue()
                         dbrefPosts.child(postID).removeValue()
 
@@ -89,8 +98,8 @@ class ConfirmRequestActivity : AppCompatActivity() {
                         reqQuery.addValueEventListener(object : ValueEventListener {
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
                                 for (postSnapshot in dataSnapshot.children) {
-//                                    Log.d(TAG,postSnapshot.value.toString())
                                     postSnapshot.ref.removeValue().addOnSuccessListener {
+                                        // navigate to MainActivity on success
                                         val intent = Intent(this@ConfirmRequestActivity,MainActivity::class.java)
                                         startActivity(intent)
                                     }.addOnFailureListener {
@@ -104,8 +113,6 @@ class ConfirmRequestActivity : AppCompatActivity() {
                                 Log.w(TAG, "loadReqQuery:onCancelled", databaseError.toException())
                             }
                         })
-                        val intent = Intent(this,MainActivity::class.java)
-                        startActivity(intent)
                     }
                     builder.setNegativeButton("Cancel"){_, _ ->
                     }
@@ -113,6 +120,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
                     dialog.show()
 
                 } else {
+                    // Update quantity if the requested quantity does not exceed current quantity
                     dbrefPosts
                         .child(postID)
                         .child("qty")
@@ -130,6 +138,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
 
         }
 
+        // Delete the request if it is declined
         declineButton.setOnClickListener {
             dbrefReq.child(reqID!!).removeValue()
                 .addOnSuccessListener {

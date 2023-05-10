@@ -1,13 +1,11 @@
 package com.example.fuelbuddy
 
-import android.content.ContentValues.TAG
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.fuelbuddy.dataClasses.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
@@ -22,6 +20,7 @@ class Register : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        // set widgets
         val registerBtn: Button = findViewById(R.id.LoginBtn)
         val registerName :TextView = findViewById(R.id.edtUserName)
         val registerEmail :TextView = findViewById(R.id.edtLoginName)
@@ -31,11 +30,13 @@ class Register : AppCompatActivity() {
         val registerContactNumber :TextView = findViewById(R.id.edtPhone)
         val loginLink : TextView = findViewById(R.id.SignUpLink)
 
-
+        // initialize databases
         auth = FirebaseAuth.getInstance()
         dbref = FirebaseDatabase.getInstance().getReference("Users")
 
+
         registerBtn.setOnClickListener {
+            // get input dta
             val name = registerName.text.toString()
             val email = registerEmail.text.toString()
             val password  = registerPassword.text.toString()
@@ -43,15 +44,17 @@ class Register : AppCompatActivity() {
             val nic = registerNIC.text.toString()
             val phone = registerContactNumber.text.toString()
 
+            // validations
             if( name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() &&
                 rePassword.isNotEmpty() && nic.isNotEmpty() && phone.isNotEmpty()) {
+                // validations
                 if( password == rePassword){
                     auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
 
                                 val user = auth.currentUser
-
+                                // save basic information in the auth server
                                 val profileUpdates = userProfileChangeRequest {
                                     displayName = name
                                 }
@@ -59,6 +62,7 @@ class Register : AppCompatActivity() {
                                 user!!.updateProfile(profileUpdates)
                                     .addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
+                                            // save additional information in real time database
                                             val registeredUser = User(nic,phone)
                                             dbref.child(user.uid).setValue(registeredUser).addOnCompleteListener{
                                                 val intent = Intent(this,MainActivity::class.java)
@@ -79,14 +83,17 @@ class Register : AppCompatActivity() {
                             }
                         }
                 } else {
+                    // validation toast
                     Toast.makeText(this, "Password and confirm password is not the same", Toast.LENGTH_SHORT).show()
                 }
             } else {
+                // validation toast
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
             }
         }
 
         loginLink.setOnClickListener {
+            // navigate to Login activity
             startActivity(Intent(this,Login::class.java))
         }
     }

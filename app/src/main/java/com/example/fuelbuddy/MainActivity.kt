@@ -22,12 +22,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // default fragment
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.mainFragment, fragmentMenu)
             commit()
         }
+
+        // set widget
         mainBottomNav = findViewById(R.id.mainBottomNav)
+
+        // begin transaction when a icon is clicked
         mainBottomNav.setOnItemSelectedListener { item -> when (item.itemId) {
             R.id.bottom_menu_text -> { replaceFragment(fragmentMenu)
                                         true }
@@ -37,8 +42,10 @@ class MainActivity : AppCompatActivity() {
                                            true }
             else -> false } }
 
+        // set widget
         mainTopNav = findViewById(R.id.mainTopNav)
 
+        // redirect when a text is clicked
         mainTopNav.setOnMenuItemClickListener { item ->
             when(item.itemId) {
                 R.id.top_account_text -> { startActivity((Intent(this,Account::class.java)))
@@ -51,10 +58,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // function to signOut from the app
     private fun signOut() {
         Firebase.auth.signOut()
         startActivity(Intent(this,Login::class.java))
     }
+
+    // function to replace one fragment with another
     private fun replaceFragment(fragment :Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.mainFragment, fragment)
