@@ -104,39 +104,19 @@ class EditPost : AppCompatActivity() {
 
         //remove post from firebase realtime database
         database.child(post).removeValue()
+
+
             //call addOnSuccessListener if post deleted successfully
             .addOnSuccessListener {
-                // delete all the related requests
-                val reqQuery : Query = dbReq.orderByChild("post").equalTo(post)
-                reqQuery.addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        for (postSnapshot in dataSnapshot.children) {
-                            postSnapshot.ref.removeValue().addOnSuccessListener {
-                                Toast.makeText(this@EditPost, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this@EditPost , MainActivity::class.java)
-                                finish()
-                                startActivity(intent)
-                            }.addOnFailureListener {
-                                Toast.makeText(
-                                    this@EditPost,
-                                    "Could not update database",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            }
-                        }
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-
-                    }
-                })
-
+                Toast.makeText(this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this , MainActivity::class.java)
+                finish()
+                startActivity(intent)
             }.addOnFailureListener {    //call addOnFailureListener if post deletion failed
                 Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
             }
-
-
     }
+
 
     private fun editPost() {
         val post = postID.toString()        //assign post ID to post variable
