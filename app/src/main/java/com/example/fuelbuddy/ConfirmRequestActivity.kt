@@ -142,6 +142,7 @@ class ConfirmRequestActivity : AppCompatActivity() {
             dbrefReq.child(reqID!!).removeValue()
                 .addOnSuccessListener {
                     val intent = Intent(this@ConfirmRequestActivity,MainActivity::class.java)
+                    finish()
                     startActivity(intent)
                     Toast.makeText(this, "Request Declined", Toast.LENGTH_LONG).show()
             }.addOnFailureListener {

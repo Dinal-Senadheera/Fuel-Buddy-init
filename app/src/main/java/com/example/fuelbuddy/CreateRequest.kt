@@ -82,6 +82,7 @@ class CreateRequest : AppCompatActivity() {
                         dbref.child(uniqueID).setValue(request).addOnCompleteListener {
                             // navigate to MainActivity when the request is added to database
                             val intent = Intent(this, MainActivity::class.java)
+                            finish()
                             startActivity(intent)
                             Toast.makeText(
                                 this,
