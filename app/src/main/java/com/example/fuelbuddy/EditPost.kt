@@ -16,8 +16,7 @@ import com.example.fuelbuddy.R
 import com.example.fuelbuddy.dataClasses.Posted
 import com.example.fuelbuddy.fragments.PostedFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import java.lang.Boolean.FALSE
 import java.lang.Boolean.TRUE
 
@@ -26,6 +25,7 @@ class EditPost : AppCompatActivity() {
     //initialization
     private lateinit var auth : FirebaseAuth
     private lateinit var database : DatabaseReference
+    private lateinit var dbReq : DatabaseReference
     private lateinit var fuelType : EditText
     private lateinit var qty : EditText
     private lateinit var uPrice : EditText
@@ -57,6 +57,7 @@ class EditPost : AppCompatActivity() {
 
         //obtain reference to Posts node of firebase realtime database
         database = FirebaseDatabase.getInstance().getReference("Posts")
+        dbReq = FirebaseDatabase.getInstance().getReference("Requests")
         userName = findViewById(R.id.userName)
         //display current user name
         userName.text = "$name"
@@ -103,17 +104,38 @@ class EditPost : AppCompatActivity() {
 
         //remove post from firebase realtime database
         database.child(post).removeValue()
-
-
             //call addOnSuccessListener if post deleted successfully
             .addOnSuccessListener {
-                Toast.makeText(this, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this , MainActivity::class.java)
-                finish()
-                startActivity(intent)
+                // delete all the related requests
+                val reqQuery : Query = dbReq.orderByChild("post").equalTo(post)
+                reqQuery.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for (postSnapshot in dataSnapshot.children) {
+                            postSnapshot.ref.removeValue().addOnSuccessListener {
+                                Toast.makeText(this@EditPost, "Post Deleted Successfully", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@EditPost , MainActivity::class.java)
+                                finish()
+                                startActivity(intent)
+                            }.addOnFailureListener {
+                                Toast.makeText(
+                                    this@EditPost,
+                                    "Could not update database",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+                })
+
             }.addOnFailureListener {    //call addOnFailureListener if post deletion failed
                 Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
             }
+
+
     }
 
     private fun editPost() {
