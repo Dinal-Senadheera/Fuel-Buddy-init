@@ -166,11 +166,15 @@ class EditPost : AppCompatActivity() {
             val editQty = qty.text.toString().toInt()
             val editProfit = uPrice.text.toString().toInt()
 
-            val profit = calculateProfit(Qty!! ,UnitProfit!! , 1)
+            //calculate and format profit
+            val profit = calculateProfit(editQty!! ,editProfit!! , 1)
             var formattedProfit = String.format("%.2f" , profit.totalProfit())
+
+
+            //alert dialog
             val builder = AlertDialog.Builder(this)
             val message = "Do you want to update post?"
-            builder.setTitle("Your total will be Rs".plus(formattedProfit))
+            builder.setTitle("Your total will be Rs ".plus(formattedProfit))
             builder.setMessage(message)
             builder.setPositiveButton("Yes") { _, _ ->
                 //create new post of type Posted and initialize it with userID , fuelTYpe , quantity and profit
